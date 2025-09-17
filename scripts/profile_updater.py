@@ -211,29 +211,88 @@ class ProfileUpdater:
         try:
             wakatime_stats = self._create_wakatime_stats(raw_data)
             if wakatime_stats:
-                wakatime_processed = self.data_processor.process_wakatime_data(wakatime_stats)
-                
-                # Create comprehensive Wakatime summary
-                wakatime_summary = (
-                    f"{wakatime_processed.get('total_coding_time', 'No coding time data')}\n\n"
-                    f"**Top Languages:**\n```\n{wakatime_processed.get('wakatime_languages', 'No language data')}\n```\n\n"
-                    f"**Editors:**\n{wakatime_processed.get('editors', 'No editor data')}\n\n"
-                    f"**Operating Systems:**\n{wakatime_processed.get('operating_systems', 'No OS data')}"
-                )
-                
-                processed_content["WAKATIME_STATS"] = wakatime_summary
+                # Use the new comprehensive summary method
+                wakatime_summary = self.data_processor.generate_comprehensive_wakatime_summary(wakatime_stats)
+                processed_content["WAKATIME_SUMMARY"] = wakatime_summary
                 
                 # Use Wakatime languages for main language chart if available
+                wakatime_processed = self.data_processor.process_wakatime_data(wakatime_stats)
                 if wakatime_processed.get('wakatime_languages') and wakatime_processed['wakatime_languages'] != "No language data available":
                     processed_content["GITHUB_LANGUAGES"] = wakatime_processed['wakatime_languages']
             else:
                 logger.warning("No Wakatime data available, using fallback content")
-                wakatime_fallback = self.fallback_manager.get_partial_fallback(["WAKATIME_STATS"])
+                wakatime_fallback = self.fallback_manager.get_partial_fallback(["WAKATIME_SUMMARY"])
                 processed_content.update(wakatime_fallback)
         except Exception as e:
             logger.error(f"Error processing Wakatime data: {e}")
-            wakatime_fallback = self.fallback_manager.get_partial_fallback(["WAKATIME_STATS"])
+            wakatime_fallback = self.fallback_manager.get_partial_fallback(["WAKATIME_SUMMARY"])
             processed_content.update(wakatime_fallback)
+        
+        # Generate dynamic sections
+        try:
+            github_stats_obj = self._create_github_stats(raw_data)
+            wakatime_stats_obj = self._create_wakatime_stats(raw_data)
+            
+            if github_stats_obj and wakatime_stats_obj:
+                # Generate dynamic about section
+                dynamic_about = self.data_processor.generate_dynamic_about_section(github_stats_obj, wakatime_stats_obj)
+                processed_content["DYNAMIC_ABOUT_SECTION"] = dynamic_about
+                
+                # Generate fun facts
+                fun_facts = self.data_processor.generate_fun_facts(github_stats_obj, wakatime_stats_obj)
+                processed_content["FUN_FACTS"] = fun_facts
+                
+                # Generate dynamic tech stack
+                dynamic_tech_stack = self.data_processor.generate_dynamic_tech_stack(github_stats_obj, wakatime_stats_obj)
+                processed_content["DYNAMIC_TECH_STACK"] = dynamic_tech_stack
+                
+                # Generate motivational quote
+                motivational_quote = self.data_processor.generate_motivational_quote(github_stats_obj, wakatime_stats_obj)
+                processed_content["MOTIVATIONAL_QUOTE"] = motivational_quote
+                
+                # Generate coding streak message
+                streak_message = self.data_processor.generate_coding_streak_message(github_stats_obj)
+                processed_content["CODING_STREAK_MESSAGE"] = streak_message
+                
+                logger.info("Dynamic sections generated successfully")
+            else:
+                # Fallback content
+                processed_content.update({
+                    "DYNAMIC_ABOUT_SECTION": "Software Engineer @ TNM",
+                    "FUN_FACTS": "🌟 Building the future, one commit at a time",
+                    "DYNAMIC_TECH_STACK": "![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)",
+                    "MOTIVATIONAL_QUOTE": "🚀 Code is poetry written in logic",
+                    "CODING_STREAK_MESSAGE": "🌟 Ready to start my coding journey!"
+                })
+        except Exception as e:
+            logger.error(f"Error generating dynamic sections: {e}")
+            processed_content.update({
+                "DYNAMIC_ABOUT_SECTION": "Software Engineer @ TNM",
+                "FUN_FACTS": "🌟 Building the future, one commit at a time",
+                "DYNAMIC_TECH_STACK": "![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)",
+                "MOTIVATIONAL_QUOTE": "🚀 Code is poetry written in logic",
+                "CODING_STREAK_MESSAGE": "🌟 Ready to start my coding journey!"
+            })
+        
+        # Generate dynamic GitHub stats URLs
+        try:
+            github_stats_urls = self.data_processor.generate_dynamic_github_stats_urls("vishals9711")
+            processed_content.update({
+                "GITHUB_STATS_CARD": github_stats_urls['stats_card'],
+                "GITHUB_STREAK_STATS": github_stats_urls['streak_stats'],
+                "GITHUB_TOP_LANGUAGES": github_stats_urls['top_languages'],
+                "GITHUB_TROPHIES": github_stats_urls['trophies']
+            })
+            logger.info("Dynamic GitHub stats URLs generated successfully")
+        except Exception as e:
+            logger.error(f"Error generating GitHub stats URLs: {e}")
+            # Fallback to static URLs
+            processed_content.update({
+                "GITHUB_STATS_CARD": "https://github-readme-stats.vercel.app/api?username=vishals9711&theme=dark&hide_border=false&include_all_commits=false&count_private=false",
+                "GITHUB_STREAK_STATS": "https://github-readme-streak-stats.herokuapp.com/?user=vishals9711&theme=dark&hide_border=false",
+                "GITHUB_TOP_LANGUAGES": "https://github-readme-stats.vercel.app/api/top-langs/?username=vishals9711&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact",
+                "GITHUB_TROPHIES": "https://github-profile-trophy.vercel.app/?username=vishals9711&theme=radical&no-frame=false&no-bg=true&margin-w=4"
+            })
         
         # Add last updated timestamp
         processed_content["LAST_UPDATED"] = datetime.now().strftime("%B %d, %Y at %H:%M UTC")

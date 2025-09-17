@@ -1,0 +1,31 @@
+2025-09-17 14:13:19 - __main__ - INFO - <module>:73 - 🚀 Starting Profile Dynamo update process...
+2025-09-17 14:13:19 - __main__ - INFO - main:44 - 🚀 Starting Profile Dynamo update process...
+2025-09-17 14:13:19 - __main__ - INFO - main:45 - ========================================================================================================================================================================================================
+2025-09-17 14:13:19 - root - INFO - __init__:55 - ProfileUpdater initialized successfully
+2025-09-17 14:13:19 - root - INFO - run:70 - Starting profile update process
+2025-09-17 14:13:19 - scripts.error_handling - INFO - create_backup:279 - Created README backup at README.md.backup
+2025-09-17 14:13:19 - root - INFO - _update_process:75 - Fetching data from APIs...
+2025-09-17 14:13:19 - root - INFO - _fetch_all_data:131 - Fetching GitHub profile statistics...
+2025-09-17 14:13:19 - scripts.github_client - INFO - fetch_profile_stats:92 - GraphQL ultra-minimal query succeeded, falling back to REST for stats
+2025-09-17 14:13:19 - scripts.github_client - INFO - _fetch_profile_stats_rest_fallback:135 - Attempting REST API fallback for GitHub stats
+2025-09-17 14:13:20 - scripts.github_client - INFO - _fetch_profile_stats_rest_fallback:161 - REST API fallback successful: {'total_contributions': 141, 'total_prs': 47, 'total_issues': 23}
+2025-09-17 14:13:20 - root - INFO - _fetch_all_data:134 - GitHub profile statistics fetched successfully
+2025-09-17 14:13:20 - root - INFO - _fetch_all_data:142 - Fetching GitHub pinned repositories...
+2025-09-17 14:13:20 - root - INFO - _fetch_all_data:145 - GitHub pinned repositories fetched successfully
+2025-09-17 14:13:20 - root - INFO - _fetch_all_data:153 - Fetching GitHub language statistics...
+2025-09-17 14:13:22 - root - INFO - _fetch_all_data:156 - GitHub language statistics fetched successfully
+2025-09-17 14:13:22 - root - INFO - _fetch_all_data:164 - Fetching Wakatime coding statistics...
+2025-09-17 14:13:23 - root - INFO - _fetch_all_data:167 - Wakatime coding statistics fetched successfully
+2025-09-17 14:13:23 - root - INFO - _update_process:79 - Processing data...
+2025-09-17 14:13:23 - root - INFO - _process_data:257 - Dynamic sections generated successfully
+2025-09-17 14:13:23 - root - INFO - _process_data:286 - Dynamic GitHub stats URLs generated successfully
+2025-09-17 14:13:23 - root - INFO - _process_data:300 - Data processing completed
+2025-09-17 14:13:23 - root - INFO - _update_process:83 - Generating README...
+2025-09-17 14:13:23 - scripts.template_engine - INFO - load_template:51 - Successfully loaded template from README.template.md
+2025-09-17 14:13:23 - scripts.template_engine - INFO - populate_template:106 - Template population completed. Replaced 14 placeholders
+2025-09-17 14:13:23 - scripts.template_engine - INFO - save_readme:132 - Created backup at README.md.backup
+2025-09-17 14:13:23 - scripts.template_engine - INFO - save_readme:140 - Successfully saved README to README.md
+2025-09-17 14:13:23 - scripts.template_engine - INFO - process_template:174 - Template processing completed successfully
+2025-09-17 14:13:23 - root - INFO - _generate_readme:312 - README generation completed successfully
+2025-09-17 14:13:23 - root - INFO - _update_process:86 - Profile update completed successfully
+2025-09-17 14:13:23 - __main__ - INFO - main:63 - ✅ Profile update completed successfully!

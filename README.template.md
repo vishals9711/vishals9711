@@ -1,20 +1,52 @@
-# Hi there! 👋
+# 💫 About Me:
+{DYNAMIC_ABOUT_SECTION}
 
-Welcome to my GitHub profile! This README is automatically updated with my latest coding activity and statistics.
+## 🌐 Socials:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711) 
 
-## 📊 Weekly Coding Activity
+## 🎯 Fun Facts:
+{FUN_FACTS}
 
-{WAKATIME_STATS}
+## 💭 Today's Quote:
+{MOTIVATIONAL_QUOTE}
+
+## 🔥 Coding Streak:
+{CODING_STREAK_MESSAGE}
+
+# 💻 Tech Stack:
+{DYNAMIC_TECH_STACK}
+
+# 📊 GitHub Stats:
+![GitHub Stats]({GITHUB_STATS_CARD})
+![GitHub Streak]({GITHUB_STREAK_STATS})
+![Top Languages]({GITHUB_TOP_LANGUAGES})
+
+## 🏆 GitHub Trophies
+![Trophies]({GITHUB_TROPHIES})
+
+---
+
+# 📊 Weekly Coding Activity
+
+📊 **Coding Activity (Last 7 Days)**
+
+{WAKATIME_SUMMARY}
 
 ## 🔧 Top Programming Languages
 
+```
 {GITHUB_LANGUAGES}
+```
 
-## 📈 GitHub Statistics
+## 📈 GitHub Activity
+
+📈 **GitHub Activity**
 
 {CONTRIBUTION_STATS}
 
 ## 📌 Pinned Repositories
+
+📌 **Featured Repositories**
 
 {PINNED_REPOS}
 
@@ -23,3 +55,8 @@ Welcome to my GitHub profile! This README is automatically updated with my lates
 *Last updated: {LAST_UPDATED}*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/username/profile-dynamo)
+
+---
+[![](https://visitcount.itsvg.in/api?id=vishals9711&icon=0&color=9)](https://visitcount.itsvg.in)
+
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
