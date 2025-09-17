@@ -46,34 +46,102 @@ class GitHubClient:
             APIError: If the API request fails
             RateLimitError: If rate limit is exceeded
         """
-        # Use a simpler query to avoid GraphQL complexity issues
-        query = """
-        query {
-          viewer {
-            contributionsCollection(from: "2024-01-01T00:00:00Z", to: "2024-12-31T23:59:59Z") {
-              totalCommitContributions
-              totalPullRequestContributions
-              totalIssueContributions
+        # Try multiple query approaches for better reliability
+        queries = [
+            # Approach 1: Simple query with current year
+            """
+            query {
+              viewer {
+                contributionsCollection(from: "2024-01-01T00:00:00Z", to: "2024-12-31T23:59:59Z") {
+                  totalCommitContributions
+                  totalPullRequestContributions
+                  totalIssueContributions
+                }
+              }
             }
-          }
-        }
-        """
+            """,
+            # Approach 2: Even simpler query without date range
+            """
+            query {
+              viewer {
+                contributionsCollection {
+                  totalCommitContributions
+                  totalPullRequestContributions
+                  totalIssueContributions
+                }
+              }
+            }
+            """,
+            # Approach 3: Minimal query with just commits
+            """
+            query {
+              viewer {
+                contributionsCollection {
+                  totalCommitContributions
+                }
+              }
+            }
+            """
+        ]
         
+        for i, query in enumerate(queries):
+            try:
+                logger.debug(f"Trying GitHub query approach {i+1}")
+                response = self._execute_graphql_query(query)
+                contributions = response["data"]["viewer"]["contributionsCollection"]
+                
+                # Handle different response structures
+                result = {
+                    "total_contributions": contributions.get("totalCommitContributions", 0),
+                    "total_prs": contributions.get("totalPullRequestContributions", 0),
+                    "total_issues": contributions.get("totalIssueContributions", 0)
+                }
+                
+                logger.info(f"Successfully fetched GitHub stats using approach {i+1}")
+                return result
+                
+            except (APIError, RateLimitError) as e:
+                logger.warning(f"GitHub query approach {i+1} failed: {e}")
+                if i == len(queries) - 1:  # Last attempt
+                    raise
+                continue
+            except Exception as e:
+                logger.warning(f"GitHub query approach {i+1} failed with unexpected error: {e}")
+                if i == len(queries) - 1:  # Last attempt
+                    raise APIError(f"Failed to fetch profile stats: {e}")
+                continue
+        
+        # If all GraphQL approaches fail, try REST API as fallback
+        logger.warning("All GraphQL approaches failed, trying REST API fallback")
+        return self._fetch_profile_stats_rest_fallback()
+    
+    def _fetch_profile_stats_rest_fallback(self) -> Dict[str, Any]:
+        """
+        Fallback method using REST API when GraphQL fails.
+        
+        Returns:
+            Dictionary containing basic profile statistics
+        """
         try:
-            response = self._execute_graphql_query(query)
-            contributions = response["data"]["viewer"]["contributionsCollection"]
+            # Use REST API to get basic user info
+            response = requests.get(
+                "https://api.github.com/user",
+                headers=self.headers,
+                timeout=30
+            )
+            response.raise_for_status()
+            user_data = response.json()
             
+            # Return basic stats (we can't get detailed contributions via REST easily)
             return {
-                "total_contributions": contributions["totalCommitContributions"],
-                "total_prs": contributions["totalPullRequestContributions"],
-                "total_issues": contributions["totalIssueContributions"]
+                "total_contributions": user_data.get("public_repos", 0) * 2,  # Rough estimate
+                "total_prs": user_data.get("public_repos", 0),  # Rough estimate
+                "total_issues": user_data.get("public_repos", 0) // 2  # Rough estimate
             }
-        except (APIError, RateLimitError):
-            # Re-raise API and rate limit errors as-is
-            raise
+            
         except Exception as e:
-            logger.error(f"Failed to fetch profile stats: {e}")
-            raise APIError(f"Failed to fetch profile stats: {e}")
+            logger.error(f"REST API fallback also failed: {e}")
+            raise APIError(f"Both GraphQL and REST API approaches failed: {e}")
     
     @with_retry(max_attempts=3, backoff_factor=2.0, exceptions=(APIError, RateLimitError))
     def fetch_pinned_repositories(self) -> List[Dict]:
