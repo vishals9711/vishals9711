@@ -12,8 +12,14 @@ export async function getHeaderAndBio() {
 
   const topLanguage = wakatimeStats.data.data.languages[0].name;
   const latestRepo = userRepos.data[0].name;
+  const totalHours = Math.round(wakatimeStats.data.data.total_seconds / 3600);
 
-  const bioData = await llm.generateBio({ topLanguage, latestRepo });
+  const bioData = await llm.generateBio({ 
+    topLanguage, 
+    latestRepo, 
+    totalHours,
+    username: GITHUB_USERNAME 
+  });
   return { bio: bioData.bio };
 }
 
@@ -34,33 +40,74 @@ export async function getDynamicStats() {
 
 export async function getTechArsenal() {
   const userRepos = await github.listUserRepos(GITHUB_USERNAME);
-  const techSet = new Set();
+  const languageStats = {};
+  const repoLanguages = [];
 
+  // Collect language data from recent repositories
   for (const repo of userRepos.data) {
-    const [languages, content] = await Promise.all([
-      github.getRepoLanguages(GITHUB_USERNAME, repo.name),
-      github.getRepoContent(GITHUB_USERNAME, repo.name),
-    ]);
+    try {
+      const languages = await github.getRepoLanguages(GITHUB_USERNAME, repo.name);
+      const repoLangData = {
+        repo: repo.name,
+        languages: languages.data
+      };
+      repoLanguages.push(repoLangData);
 
-    Object.keys(languages.data).forEach(lang => techSet.add(lang));
-
-    if (content.data.find(file => file.name === 'package.json')) techSet.add('Node.js');
-    if (content.data.find(file => file.name === 'requirements.txt')) techSet.add('Python');
-    if (content.data.find(file => file.name === 'Dockerfile')) techSet.add('Docker');
+      // Aggregate language statistics
+      Object.entries(languages.data).forEach(([lang, bytes]) => {
+        if (languageStats[lang]) {
+          languageStats[lang] += bytes;
+        } else {
+          languageStats[lang] = bytes;
+        }
+      });
+    } catch (error) {
+      console.warn(`Could not fetch languages for ${repo.name}:`, error.message);
+    }
   }
 
-  return Array.from(techSet);
+  // Sort languages by usage
+  const sortedLanguages = Object.entries(languageStats)
+    .sort(([,a], [,b]) => b - a)
+    .slice(0, 10) // Top 10 languages
+    .map(([lang]) => lang);
+
+  // Use LLM to enhance and categorize the tech stack
+  const enhancedTechStack = await llm.generateTechStack({
+    languages: sortedLanguages,
+    repoLanguages: repoLanguages.slice(0, 5), // Recent 5 repos
+    totalRepos: userRepos.data.length
+  });
+
+  return enhancedTechStack.techStack || sortedLanguages;
 }
 
 export async function getProjectSpotlight() {
   const userRepos = await github.listUserRepos(GITHUB_USERNAME);
   const repo = userRepos.data[0];
 
+  // Get additional repo details
+  const repoDetails = await github.getRepoContent(GITHUB_USERNAME, repo.name);
+  
+  // Use LLM to generate an engaging description if the repo description is empty
+  let description = repo.description;
+  if (!description || description.trim() === '') {
+    const enhancedDescription = await llm.generateProjectDescription({
+      repoName: repo.name,
+      language: repo.language,
+      stars: repo.stargazers_count,
+      hasReadme: repoDetails.data.some(file => file.name.toLowerCase().includes('readme')),
+      fileCount: repoDetails.data.length
+    });
+    description = enhancedDescription.description;
+  }
+
   return {
     name: repo.name,
-    description: repo.description,
+    description: description,
     stars: repo.stargazers_count,
     language: repo.language,
+    url: repo.html_url
   };
 }
 

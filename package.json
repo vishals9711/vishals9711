@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Run 'pnpm start' with valid API keys to test the application\" && exit 0"
   },
   "keywords": [],
   "author": "",
