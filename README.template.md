@@ -26,17 +26,7 @@
 
 ---
 
-# 📊 Weekly Coding Activity
-
-📊 **Coding Activity (Last 7 Days)**
-
 {WAKATIME_SUMMARY}
-
-## 🔧 Top Programming Languages
-
-```
-{GITHUB_LANGUAGES}
-```
 
 ## 📈 GitHub Activity
 

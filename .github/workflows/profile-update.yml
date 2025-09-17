@@ -19,34 +19,45 @@ jobs:
     steps:
       # Requirement 2.2: Check out the repository code successfully
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       
-      # Requirement 2.3: Set up the Python 3.10 environment
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
         with:
-          python-version: '3.10'
+          version: 8
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a recent Node.js version
+          cache: 'pnpm'
       
-      # Configure workflow to install UV and set up Python environment
-      - name: Install UV
+      - name: Get pnpm store directory
+        id: pnpm-cache
         run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
       
-      # Add steps to install dependencies with UV and execute main script
-      - name: Install dependencies with UV
-        run: |
-          uv sync
+      - name: Install dependencies
+        run: pnpm install
       
-      # Requirement 2.4: Execute main script with API keys as secure environment variables
       - name: Update profile README
         env:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           GH_PAT_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
         run: |
-          uv run python scripts/update_profile.py
+          pnpm start
       
       # Requirement 2.5: Automatically commit the updated file to main branch
       # Requirement 2.6: Handle errors gracefully without breaking the repository
