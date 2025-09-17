@@ -190,9 +190,9 @@ class ProfileUpdater:
             if github_stats:
                 github_processed = self.data_processor.process_github_data(github_stats)
                 processed_content.update({
-                    "CONTRIBUTION_STATS": github_processed.get("contribution_stats", self.fallback_content["CONTRIBUTION_STATS"]),
-                    "PINNED_REPOS": github_processed.get("pinned_repos", self.fallback_content["PINNED_REPOS"]),
-                    "GITHUB_LANGUAGES": github_processed.get("github_languages", self.fallback_content["GITHUB_LANGUAGES"])
+                    "CONTRIBUTION_STATS": github_processed.get("contribution_stats", fallback_manager.get_fallback_content()["CONTRIBUTION_STATS"]),
+                    "PINNED_REPOS": github_processed.get("pinned_repos", fallback_manager.get_fallback_content()["PINNED_REPOS"]),
+                    "GITHUB_LANGUAGES": github_processed.get("github_languages", fallback_manager.get_fallback_content()["GITHUB_LANGUAGES"])
                 })
             else:
                 logger.warning("No GitHub data available, using fallback content")

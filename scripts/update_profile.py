@@ -11,6 +11,7 @@ import os
 import sys
 import logging
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Add the project root to the Python path
 project_root = Path(__file__).parent.parent
@@ -31,6 +32,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+load_dotenv()
 
 def main():
     """
@@ -40,13 +42,13 @@ def main():
     and executes the profile update process.
     """
     logger.info("🚀 Starting Profile Dynamo update process...")
-    
+    logger.info("=="*100)
     # Get API credentials from environment variables
-    github_token = os.getenv("GH_TOKEN")
+    github_token = os.getenv("GH_PAT_TOKEN")
     wakatime_key = os.getenv("WAKATIME_API_KEY")
     
     if not github_token:
-        logger.error("GH_TOKEN environment variable not set")
+        logger.error("GH_PAT_TOKEN environment variable not set")
         raise ValueError("GitHub token is required")
     
     if not wakatime_key:
@@ -68,4 +70,5 @@ def main():
 
 
 if __name__ == "__main__":
+    logger.info("🚀 Starting Profile Dynamo update process...")
     main()
