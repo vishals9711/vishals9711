@@ -156,12 +156,18 @@ class WakatimeClient:
         url = f"{self.base_url}{endpoint}"
         
         try:
+            # Log the request for debugging (without sensitive data)
+            logger.debug(f"Making request to Wakatime API: {endpoint}")
+            
             response = requests.get(
                 url,
                 headers=self.headers,
                 params=params or {},
                 timeout=30
             )
+            
+            # Log response status for debugging
+            logger.debug(f"Wakatime API response status: {response.status_code}")
             
             # Check for rate limiting (Wakatime uses 429 status code)
             if response.status_code == 429:
@@ -173,6 +179,7 @@ class WakatimeClient:
             
             # Check for authentication errors
             if response.status_code == 401:
+                logger.error(f"Wakatime API authentication failed. Response: {response.text[:200]}")
                 raise APIError("Wakatime API authentication failed. Check your API key.")
             
             # Check for other HTTP errors

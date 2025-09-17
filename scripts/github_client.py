@@ -46,10 +46,11 @@ class GitHubClient:
             APIError: If the API request fails
             RateLimitError: If rate limit is exceeded
         """
+        # Use a simpler query to avoid GraphQL complexity issues
         query = """
         query {
           viewer {
-            contributionsCollection {
+            contributionsCollection(from: "2024-01-01T00:00:00Z", to: "2024-12-31T23:59:59Z") {
               totalCommitContributions
               totalPullRequestContributions
               totalIssueContributions
@@ -140,12 +141,13 @@ class GitHubClient:
             APIError: If the API request fails
             RateLimitError: If rate limit is exceeded
         """
+        # Simplified query to reduce complexity and avoid rate limits
         query = """
         query {
           viewer {
-            repositories(first: 100, ownerAffiliations: OWNER, orderBy: {field: UPDATED_AT, direction: DESC}) {
+            repositories(first: 50, ownerAffiliations: OWNER, orderBy: {field: UPDATED_AT, direction: DESC}) {
               nodes {
-                languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+                languages(first: 5, orderBy: {field: SIZE, direction: DESC}) {
                   edges {
                     size
                     node {
