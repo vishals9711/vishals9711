@@ -1,19 +1,20 @@
 # 💫 About Me:
-Software Engineer @ TNM. I'm passionate about building robust applications and contributing to impactful projects. My GitHub activity includes over 141 contributions, 47 pull requests, and 24 issues. I've dedicated over 35 hours to coding, with TypeScript as my primary language. Always learning and eager to collaborate on innovative solutions.
+Software Engineer @ TNM. Active contributor with 141 contributions, 47 pull requests, and ~24 issues addressed. My coding efforts, totaling over 35 hours, are predominantly in TypeScript.
 
 ## 🌐 Socials:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711) 
 
 ## 🎯 Fun Facts:
-Here are 4 fun facts about your coding activity for your GitHub README:
+Here are 3-4 fun facts about your coding activity for your GitHub README:
 
-*   ☕ You've spent a whopping **35.5 hours** (or almost 1.5 full days!) purely in the zone, coding away according to Wakatime!
-*   🚀 With **47 Pull Requests**, you're clearly an active contributor, getting your code directly into projects!
-*   💡 Your **141 total contributions** go beyond just PRs and issues. You're also active with commits, code reviews, and discussions – a true team player!
-*   ⏱️ Dividing your total coding time by your contributions suggests that, on average, each GitHub interaction represents about **15 minutes of focused coding effort**!
+🗓️ You've spent a whopping **1.5 days** (or roughly 36 hours!) actively coding, according to Wakatime. That's some serious keyboard dedication!
+
+🚀 Out of your 141 total contributions, **47 were Pull Requests**! That's more than 1 in 3 contributions being a direct code change.
+
+💬 You've been quite the project participant, with **47 Pull Requests** and around **24 issues** opened. You're not just writing code, you're shaping projects!
 
 ## 💭 Today's Quote:
-**Every commit, every second: the rhythm of progress.**
+Every second coded, every line committed, crafts the future.
 
 ## 🔥 Coding Streak:
 🚀 Consistent coder with 141 contributions
@@ -33,24 +34,24 @@ Here are 4 fun facts about your coding activity for your GitHub README:
 
 📊 **Coding Activity (Last 7 Days)**
 
-⏱️ **35 hrs 32 mins** coding time this week
+⏱️ **35 hrs 34 mins** coding time this week
 
 **Top Languages:**
 ```
 TypeScript   ████████████████████ 27.4% (9 hrs 44 mins)
 Other        █████████████░░░░░░░ 18.2% (6 hrs 28 mins)
 Swift        ██████████░░░░░░░░░░ 14.9% (5 hrs 17 mins)
-JavaScript   █████████░░░░░░░░░░░ 12.4% (4 hrs 23 mins)
+JavaScript   █████████░░░░░░░░░░░ 12.4% (4 hrs 25 mins)
 Python       ██████░░░░░░░░░░░░░░ 9.4% (3 hrs 20 mins)
 ```
 
 **Editors:**
-- **Chrome**: 44.2% (15 hrs 42 mins)
-- **Cursor**: 26.6% (9 hrs 27 mins)
+- **Chrome**: 44.2% (15 hrs 43 mins)
+- **Cursor**: 26.7% (9 hrs 29 mins)
 - **Slack**: 10.1% (3 hrs 36 mins)
 
 **Operating Systems:**
-- **Mac**: 100.0% (35 hrs 32 mins)
+- **Mac**: 100.0% (35 hrs 34 mins)
 
 ## 📈 GitHub Activity
 
@@ -64,7 +65,7 @@ Python       ██████░░░░░░░░░░░░░░ 9.4% (
 
 📌 **Featured Repositories**
 
-- **[vishals9711](https://github.com/vishals9711/vishals9711)** -  (Python) ⭐ 0
+- **[vishals9711](https://github.com/vishals9711/vishals9711)** -  (JavaScript) ⭐ 0
 - **[mind-ful](https://github.com/vishals9711/mind-ful)** -  (TypeScript) ⭐ 0
 - **[private-chat-app](https://github.com/vishals9711/private-chat-app)** -  (TypeScript) ⭐ 0
 - **[personal-app](https://github.com/vishals9711/personal-app)** -  (TypeScript) ⭐ 0
@@ -72,7 +73,7 @@ Python       ██████░░░░░░░░░░░░░░ 9.4% (
 
 ---
 
-*Last updated: September 17, 2025 at 15:47 EDT*
+*Last updated: September 17, 2025 at 19:48 UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/username/profile-dynamo)
 
