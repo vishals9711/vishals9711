@@ -5,20 +5,18 @@ import * as templateService from './services/templateService.js';
 async function main() {
   try {
     console.log('Fetching data...');
-    const [header, stats, tech, spotlight, achievements] = await Promise.all([
+    const [header, stats, languages, spotlight] = await Promise.all([
       dataService.getHeaderAndBio(),
-      dataService.getDynamicStats(),
-      dataService.getTechArsenal(),
+      dataService.getGithubStats(),
+      dataService.getLanguages(),
       dataService.getProjectSpotlight(),
-      dataService.getAchievements(),
     ]);
 
     const data = {
       header,
       stats,
-      tech,
+      languages,
       spotlight,
-      achievements,
     };
 
     console.log('Generating README...');

@@ -27,6 +27,21 @@ export async function listUserRepos(username) {
   });
 }
 
+export async function listAllUserRepos(username) {
+  return octokit.paginate(octokit.repos.listForUser, {
+    username,
+    type: 'owner',
+    sort: 'pushed',
+    per_page: 100,
+  });
+}
+
+export async function getSearchData(query) {
+  return octokit.search.issuesAndPullRequests({
+    q: query,
+  });
+}
+
 export async function getRepoLanguages(owner, repo) {
   return octokit.repos.listLanguages({ owner, repo });
 }
@@ -40,6 +55,8 @@ export async function getContributionData(username) {
     query($username: String!) {
       user(login: $username) {
         contributionsCollection {
+          totalCommitContributions
+          totalRepositoriesWithContributedCommits
           contributionCalendar {
             totalContributions
             weeks {

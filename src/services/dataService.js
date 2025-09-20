@@ -23,37 +23,14 @@ export async function getHeaderAndBio() {
   return { bio: bioData.bio };
 }
 
-export async function getDynamicStats() {
-  const [contributionData, userData, wakatimeStats] = await Promise.all([
-    github.getContributionData(GITHUB_USERNAME),
-    github.getUserData(GITHUB_USERNAME),
-    wakatime.getStats('all_time'),
-  ]);
-
-  return {
-    contributions: contributionData.user.contributionsCollection.contributionCalendar.totalContributions,
-    repos: userData.data.public_repos,
-    followers: userData.data.followers,
-    codedHours: wakatimeStats.data.data.total_seconds / 3600,
-  };
-}
-
-export async function getTechArsenal() {
-  const userRepos = await github.listUserRepos(GITHUB_USERNAME);
+export async function getLanguages() {
+  const userRepos = await github.listAllUserRepos(GITHUB_USERNAME);
   const languageStats = {};
-  const repoLanguages = [];
 
-  // Collect language data from recent repositories
-  for (const repo of userRepos.data) {
+  // Collect language data from all repositories
+  for (const repo of userRepos) {
     try {
       const languages = await github.getRepoLanguages(GITHUB_USERNAME, repo.name);
-      const repoLangData = {
-        repo: repo.name,
-        languages: languages.data
-      };
-      repoLanguages.push(repoLangData);
-
-      // Aggregate language statistics
       Object.entries(languages.data).forEach(([lang, bytes]) => {
         if (languageStats[lang]) {
           languageStats[lang] += bytes;
@@ -66,20 +43,39 @@ export async function getTechArsenal() {
     }
   }
 
+  // Calculate percentages
+  const totalBytes = Object.values(languageStats).reduce((sum, bytes) => sum + bytes, 0);
+  const languagePercentages = {};
+  for (const [lang, bytes] of Object.entries(languageStats)) {
+    languagePercentages[lang] = ((bytes / totalBytes) * 100).toFixed(2);
+  }
+
   // Sort languages by usage
-  const sortedLanguages = Object.entries(languageStats)
+  const sortedLanguages = Object.entries(languagePercentages)
     .sort(([,a], [,b]) => b - a)
-    .slice(0, 10) // Top 10 languages
-    .map(([lang]) => lang);
+    .slice(0, 8) // Top 8 languages
+    .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
 
-  // Use LLM to enhance and categorize the tech stack
-  const enhancedTechStack = await llm.generateTechStack({
-    languages: sortedLanguages,
-    repoLanguages: repoLanguages.slice(0, 5), // Recent 5 repos
-    totalRepos: userRepos.data.length
-  });
+  return sortedLanguages;
+}
 
-  return enhancedTechStack.techStack || sortedLanguages;
+export async function getGithubStats() {
+  const [userRepos, issues, pullRequests, contributions] = await Promise.all([
+    github.listAllUserRepos(GITHUB_USERNAME),
+    github.getSearchData(`is:issue author:${GITHUB_USERNAME}`),
+    github.getSearchData(`is:pr author:${GITHUB_USERNAME}`),
+    github.getContributionData(GITHUB_USERNAME)
+  ]);
+
+  const totalStars = userRepos.reduce((acc, repo) => acc + repo.stargazers_count, 0);
+
+  return {
+    stars: totalStars,
+    issues: issues.data.total_count,
+    prs: pullRequests.data.total_count,
+    commits: contributions.user.contributionsCollection.totalCommitContributions,
+    contributedTo: contributions.user.contributionsCollection.totalRepositoriesWithContributedCommits,
+  };
 }
 
 export async function getProjectSpotlight() {
@@ -109,54 +105,4 @@ export async function getProjectSpotlight() {
     language: repo.language,
     url: repo.html_url
   };
-}
-
-export async function getAchievements() {
-  const [publicEvents, wakatimeStats, contributionData] = await Promise.all([
-    github.listPublicEvents(GITHUB_USERNAME),
-    wakatime.getStats('last_30_days'),
-    github.getContributionData(GITHUB_USERNAME),
-  ]);
-
-  const achievements = {
-    nightOwl: false,
-    polyglot: false,
-    onFire: false,
-    ossChampion: false,
-  };
-
-  // Night Owl Logic
-  const pushEvents = publicEvents.data.filter(e => e.type === 'PushEvent');
-  const nightCommits = pushEvents.filter(e => {
-    const hour = new Date(e.created_at).getUTCHours();
-    return hour >= 0 && hour <= 5;
-  });
-  if (pushEvents.length > 0 && (nightCommits.length / pushEvents.length) > 0.3) {
-    achievements.nightOwl = true;
-  }
-
-  // Polyglot Logic
-  if (wakatimeStats.data.data.languages.length >= 4) {
-    achievements.polyglot = true;
-  }
-
-  // On Fire Logic
-  const weeks = contributionData.user.contributionsCollection.contributionCalendar.weeks;
-  const last7Days = weeks.flatMap(w => w.contributionDays).slice(-7);
-  if (last7Days.every(d => d.contributionCount > 0)) {
-    achievements.onFire = true;
-  }
-  
-  // OSS Champion Logic
-  const mergedPRs = publicEvents.data.filter(e => 
-    e.type === 'PullRequestEvent' && 
-    e.payload.action === 'closed' && 
-    e.payload.pull_request.merged &&
-    e.repo.name.split('/')[0] !== GITHUB_USERNAME
-  );
-  if (mergedPRs.length > 0) {
-    achievements.ossChampion = true;
-  }
-
-  return achievements;
 }
