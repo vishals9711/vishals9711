@@ -1,11 +1,11 @@
 # 💫 About Me:
-Fueled by 24 hours of pure coding passion, I&#39;m a curious developer constantly building and exploring new ideas across the exciting spectrum of &#39;Other&#39; languages!
+Driven by an insatiable passion for code, I&#39;ve already poured 24 dedicated hours into building, eagerly exploring a diverse tech landscape beyond my &#39;Other&#39; primary language!
 
 ## 🌐 Socials:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711) 
 
 # 💻 Tech Stack:
-![JavaScript](https://img.shields.io/badge/JavaScript-%23398d46.svg?style=for-the-badge&logo=javascript&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-%23d3c3f6.svg?style=for-the-badge&logo=typescript&logoColor=white) ![SCSS](https://img.shields.io/badge/SCSS-%23c8e89b.svg?style=for-the-badge&logo=scss&logoColor=white) ![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-%23a77622.svg?style=for-the-badge&logo=jupyternotebook&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-%23c45fa6.svg?style=for-the-badge&logo=html&logoColor=white) ![Handlebars](https://img.shields.io/badge/Handlebars-%23e2da48.svg?style=for-the-badge&logo=handlebars&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-%2366e6ec.svg?style=for-the-badge&logo=css&logoColor=white) ![TSQL](https://img.shields.io/badge/TSQL-%2380cdf5.svg?style=for-the-badge&logo=tsql&logoColor=white) 
+![JavaScript](https://img.shields.io/badge/JavaScript-%23664aad.svg?style=for-the-badge&logo=javascript&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-%23c89ef7.svg?style=for-the-badge&logo=typescript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-%23e301bd.svg?style=for-the-badge&logo=html&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-%2341b262.svg?style=for-the-badge&logo=css&logoColor=white) ![SCSS](https://img.shields.io/badge/SCSS-%2337800c.svg?style=for-the-badge&logo=scss&logoColor=white) ![React](https://img.shields.io/badge/React-%231b26de.svg?style=for-the-badge&logo=react&logoColor=white) ![Angular](https://img.shields.io/badge/Angular-%23a129fc.svg?style=for-the-badge&logo=angular&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-%23838087.svg?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/Express.js-%2330543b.svg?style=for-the-badge&logo=express.js&logoColor=white) ![NestJS](https://img.shields.io/badge/NestJS-%23eb2327.svg?style=for-the-badge&logo=nestjs&logoColor=white) ![Handlebars](https://img.shields.io/badge/Handlebars-%23ea9643.svg?style=for-the-badge&logo=handlebars&logoColor=white) ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-%2322bc50.svg?style=for-the-badge&logo=microsoftsqlserver&logoColor=white) ![TSQL](https://img.shields.io/badge/TSQL-%2359ce34.svg?style=for-the-badge&logo=tsql&logoColor=white) ![TypeORM](https://img.shields.io/badge/TypeORM-%23ab7ed4.svg?style=for-the-badge&logo=typeorm&logoColor=white) ![Python](https://img.shields.io/badge/Python-%2340c237.svg?style=for-the-badge&logo=python&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-%23b7c570.svg?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-%23196387.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23e3d8ff.svg?style=for-the-badge&logo=matplotlib&logoColor=white) ![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-%2317d989.svg?style=for-the-badge&logo=jupyternotebook&logoColor=white) ![Git](https://img.shields.io/badge/Git-%23d4dfff.svg?style=for-the-badge&logo=git&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-%23f9a563.svg?style=for-the-badge&logo=docker&logoColor=white) ![REST APIs](https://img.shields.io/badge/REST%20APIs-%239ade0a.svg?style=for-the-badge&logo=restapis&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%23779089.svg?style=for-the-badge&logo=tailwindcss&logoColor=white) ![Jest](https://img.shields.io/badge/Jest-%2389d374.svg?style=for-the-badge&logo=jest&logoColor=white) 
 
 # 📊 GitHub Stats:
 | Key                | Value                |
@@ -25,7 +25,7 @@ Fueled by 24 hours of pure coding passion, I&#39;m a curious developer constantl
 
 **[vishals9711](https://github.com/vishals9711/vishals9711)**
 
-Explore a meticulously crafted JavaScript project by vishals9711, designed with a focus on delivering core functionality through a modular and efficient architecture. Comprising 14 well-organized files, this initiative showcases a clean and robust foundation, primed for extensibility and clear understanding, as evidenced by its comprehensive README. It represents a focused engineering effort to solve a specific challenge, leveraging the versatility of JavaScript to create a powerful yet streamlined solution.
+Explore `vishals9711`, a focused JavaScript project engineered to provide a clear, modular solution to contemporary development needs. This repository leverages the power and flexibility of JavaScript, presenting a concise architecture ideal for utility development or serving as a foundational component. Its emphasis on clean code and efficient implementation offers valuable insights for building maintainable and scalable applications within the JavaScript ecosystem.
 
 ⭐ **0** stars | 💻 **JavaScript** | 🔗 **[View Project](https://github.com/vishals9711/vishals9711)**
 
@@ -54,7 +54,7 @@ Explore a meticulously crafted JavaScript project by vishals9711, designed with 
 
 ---
 
-*Last updated: Sat, 20 Sep 2025 19:14:26 GMT*
+*Last updated: Sat, 20 Sep 2025 22:51:09 GMT*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 

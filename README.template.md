@@ -5,7 +5,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711) 
 
 # 💻 Tech Stack:
-<% Object.keys(languages).forEach(t => { %>![<%= t %>](https://img.shields.io/badge/<%= t.replace(/ /g, '%20') %>-%23<%= Math.floor(Math.random()*16777215).toString(16) %>.svg?style=for-the-badge&logo=<%= t.toLowerCase().replace(/ /g, '') %>&logoColor=white) <% }) %>
+<% techStack.forEach(t => { %>![<%= t %>](https://img.shields.io/badge/<%= t.replace(/ /g, '%20') %>-%23<%= Math.floor(Math.random()*16777215).toString(16) %>.svg?style=for-the-badge&logo=<%= t.toLowerCase().replace(/ /g, '') %>&logoColor=white) <% }) %>
 
 # 📊 GitHub Stats:
 | Key                | Value                |
@@ -15,9 +15,6 @@
 | Pull Requests      | <%= stats.prs %>     |
 | Issues             | <%= stats.issues %>  |
 | Contributed to     | <%= stats.contributedTo %> |
-
-## 🏆 GitHub Trophies
-![Trophies](https://github-profile-trophy.vercel.app/?username=vishals9711&theme=radical&no-frame=false&no-bg=true&margin-w=4)
 
 ---
 

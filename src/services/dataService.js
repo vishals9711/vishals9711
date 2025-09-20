@@ -59,6 +59,14 @@ export async function getLanguages() {
   return sortedLanguages;
 }
 
+export async function getTechStack() {
+  const languages = await getLanguages();
+  const techStack = await llm.generateTechStack({
+    languages: Object.keys(languages),
+  });
+  return techStack.techStack;
+}
+
 export async function getGithubStats() {
   const [userRepos, issues, pullRequests, contributions] = await Promise.all([
     github.listAllUserRepos(GITHUB_USERNAME),
