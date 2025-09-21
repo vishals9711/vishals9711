@@ -3,7 +3,9 @@ import { GoogleGenAI } from '@google/genai';
 // Support both old and new environment variable names
 const apiKey = process.env.LLM_API_KEY || process.env.GOOGLE_API_KEY;
 if (!apiKey) {
-  throw new Error('LLM_API_KEY or GOOGLE_API_KEY environment variable is required');
+  throw new Error(
+    'LLM_API_KEY or GOOGLE_API_KEY environment variable is required'
+  );
 }
 
 const genAI = new GoogleGenAI({ apiKey });
@@ -55,19 +57,22 @@ export async function generateBio(data: BioData): Promise<BioResponse> {
         properties: {
           bio: {
             type: 'string',
-            description: 'A dynamic, engaging one-sentence bio for a GitHub profile'
-          }
+            description:
+              'A dynamic, engaging one-sentence bio for a GitHub profile',
+          },
         },
-        required: ['bio']
-      }
-    }
+        required: ['bio'],
+      },
+    },
   });
   console.log(result);
 
   return JSON.parse(result.text || '');
 }
 
-export async function generateProjectDescription(data: ProjectData): Promise<ProjectResponse> {
+export async function generateProjectDescription(
+  data: ProjectData
+): Promise<ProjectResponse> {
   const prompt = `Based on the following repository information, generate an engaging, professional project description. Make it sound interesting and highlight what makes this project special.
 
     Repository Data: ${JSON.stringify(data)}
@@ -89,19 +94,21 @@ export async function generateProjectDescription(data: ProjectData): Promise<Pro
         properties: {
           description: {
             type: 'string',
-            description: 'An engaging, professional project description'
-          }
+            description: 'An engaging, professional project description',
+          },
         },
-        required: ['description']
-      }
-    }
+        required: ['description'],
+      },
+    },
   });
   console.log(result);
 
   return JSON.parse(result.text || '');
 }
 
-export async function generateTechStack(data: TechStackData): Promise<TechStackResponse> {
+export async function generateTechStack(
+  data: TechStackData
+): Promise<TechStackResponse> {
   const prompt = `Based on the following GitHub repository language data, generate an enhanced tech stack. Analyze the languages and suggest related technologies, frameworks, and tools that would typically be used together.
 
     Language Data: ${JSON.stringify(data)}
@@ -123,14 +130,15 @@ export async function generateTechStack(data: TechStackData): Promise<TechStackR
           techStack: {
             type: 'array',
             items: {
-              type: 'string'
+              type: 'string',
             },
-            description: 'Array of technology names that complement the detected languages'
-          }
+            description:
+              'Array of technology names that complement the detected languages',
+          },
         },
-        required: ['techStack']
-      }
-    }
+        required: ['techStack'],
+      },
+    },
   });
   console.log(result);
 

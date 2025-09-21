@@ -48,11 +48,17 @@ export async function getSearchData(query: string): Promise<any> {
   });
 }
 
-export async function getRepoLanguages(owner: string, repo: string): Promise<any> {
+export async function getRepoLanguages(
+  owner: string,
+  repo: string
+): Promise<any> {
   return octokit.repos.listLanguages({ owner, repo });
 }
 
-export async function getRepoContent(owner: string, repo: string): Promise<any> {
+export async function getRepoContent(
+  owner: string,
+  repo: string
+): Promise<any> {
   return octokit.repos.getContent({ owner, repo, path: '' });
 }
 

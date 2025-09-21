@@ -67,7 +67,8 @@ export function getConfig(): Config {
     ...defaultConfig,
     github: {
       ...defaultConfig.github,
-      personalAccessToken: process.env.GH_PAT_TOKEN || defaultConfig.github.personalAccessToken,
+      personalAccessToken:
+        process.env.GH_PAT_TOKEN || defaultConfig.github.personalAccessToken,
     },
     wakatime: {
       ...defaultConfig.wakatime,
@@ -76,7 +77,10 @@ export function getConfig(): Config {
     },
     llm: {
       ...defaultConfig.llm,
-      apiKey: process.env.LLM_API_KEY || process.env.GOOGLE_API_KEY || defaultConfig.llm.apiKey,
+      apiKey:
+        process.env.LLM_API_KEY ||
+        process.env.GOOGLE_API_KEY ||
+        defaultConfig.llm.apiKey,
     },
   };
 }

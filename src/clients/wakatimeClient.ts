@@ -17,11 +17,15 @@ const apiClient = axios.create({
 
 export async function initializeWakaTime(): Promise<void> {
   if (!process.env.WAKATIME_API_KEY) {
-    console.log('WakaTime API key not provided, WakaTime features will be disabled');
+    console.log(
+      'WakaTime API key not provided, WakaTime features will be disabled'
+    );
     return;
   }
 
-  const encodedApiKey = Buffer.from(process.env.WAKATIME_API_KEY).toString('base64');
+  const encodedApiKey = Buffer.from(process.env.WAKATIME_API_KEY).toString(
+    'base64'
+  );
   apiClient.defaults.headers.common['Authorization'] = `Basic ${encodedApiKey}`;
 }
 

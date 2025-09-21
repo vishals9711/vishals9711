@@ -59,7 +59,7 @@ async function main(): Promise<void> {
       spotlight,
       techStack,
       recentActivity,
-      wakatimeData
+      wakatimeData,
     ] = await Promise.all([
       dataService.getHeaderAndBio(),
       dataService.getGithubStats(),
@@ -83,7 +83,6 @@ async function main(): Promise<void> {
     console.log('Generating README...');
     templateService.generateReadme(data);
     console.log('README generated successfully!');
-
   } catch (error) {
     console.error('Error updating profile:', error);
     process.exit(1);

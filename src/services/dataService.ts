@@ -49,7 +49,7 @@ export async function getHeaderAndBio(): Promise<HeaderData> {
     topLanguage,
     latestRepo,
     totalHours,
-    username: GITHUB_USERNAME
+    username: GITHUB_USERNAME,
   } as BioData);
 
   return { bio: bioData.bio };
@@ -66,7 +66,10 @@ export async function getLanguages(): Promise<LanguagesData> {
   // Collect language data from all repositories
   for (const repo of userRepos) {
     try {
-      const languages = await github.getRepoLanguages(GITHUB_USERNAME, repo.name);
+      const languages = await github.getRepoLanguages(
+        GITHUB_USERNAME,
+        repo.name
+      );
       Object.entries(languages.data).forEach(([lang, bytes]) => {
         if (languageStats[lang]) {
           languageStats[lang] += bytes as number;
@@ -75,12 +78,18 @@ export async function getLanguages(): Promise<LanguagesData> {
         }
       });
     } catch (error: any) {
-      console.warn(`Could not fetch languages for ${repo.name}:`, error.message);
+      console.warn(
+        `Could not fetch languages for ${repo.name}:`,
+        error.message
+      );
     }
   }
 
   // Calculate percentages
-  const totalBytes = Object.values(languageStats).reduce((sum, bytes) => sum + bytes, 0);
+  const totalBytes = Object.values(languageStats).reduce(
+    (sum, bytes) => sum + bytes,
+    0
+  );
   const languagePercentages: Record<string, string> = {};
 
   for (const [lang, bytes] of Object.entries(languageStats)) {
@@ -89,7 +98,7 @@ export async function getLanguages(): Promise<LanguagesData> {
 
   // Sort languages by usage
   const sortedLanguages = Object.entries(languagePercentages)
-    .sort(([,a], [,b]) => parseFloat(b) - parseFloat(a))
+    .sort(([, a], [, b]) => parseFloat(b) - parseFloat(a))
     .slice(0, 8) // Top 8 languages
     .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
 
@@ -121,26 +130,35 @@ export async function getTechStack(): Promise<string[]> {
 }
 
 export async function getGithubStats(): Promise<GithubStats> {
-  const [userData, userRepos, issues, pullRequests, contributions] = await Promise.all([
-    github.getUserData(GITHUB_USERNAME),
-    github.listAllUserRepos(GITHUB_USERNAME),
-    github.getSearchData(`is:issue author:${GITHUB_USERNAME}`),
-    github.getSearchData(`is:pr author:${GITHUB_USERNAME}`),
-    github.getContributionData(GITHUB_USERNAME)
-  ]);
+  const [userData, userRepos, issues, pullRequests, contributions] =
+    await Promise.all([
+      github.getUserData(GITHUB_USERNAME),
+      github.listAllUserRepos(GITHUB_USERNAME),
+      github.getSearchData(`is:issue author:${GITHUB_USERNAME}`),
+      github.getSearchData(`is:pr author:${GITHUB_USERNAME}`),
+      github.getContributionData(GITHUB_USERNAME),
+    ]);
 
-  const totalStars = userRepos.reduce((acc, repo) => acc + repo.stargazers_count, 0);
+  const totalStars = userRepos.reduce(
+    (acc, repo) => acc + repo.stargazers_count,
+    0
+  );
 
   return {
     stars: totalStars,
     issues: issues.data.total_count,
     prs: pullRequests.data.total_count,
-    commits: contributions.user.contributionsCollection.totalCommitContributions,
-    contributedTo: contributions.user.contributionsCollection.totalRepositoriesWithContributedCommits,
+    commits:
+      contributions.user.contributionsCollection.totalCommitContributions,
+    contributedTo:
+      contributions.user.contributionsCollection
+        .totalRepositoriesWithContributedCommits,
     followers: userData.data.followers,
     following: userData.data.following,
     publicRepos: userData.data.public_repos,
-    totalContributions: contributions.user.contributionsCollection.contributionCalendar.totalContributions,
+    totalContributions:
+      contributions.user.contributionsCollection.contributionCalendar
+        .totalContributions,
   };
 }
 
@@ -201,48 +219,58 @@ export async function getProjectSpotlight(): Promise<ProjectSpotlight> {
       repoName: repo.name,
       language: repo.language,
       stars: repo.stargazers_count,
-      hasReadme: repoDetails.data.some((file: any) => file.name.toLowerCase().includes('readme')),
-      fileCount: repoDetails.data.length
+      hasReadme: repoDetails.data.some((file: any) =>
+        file.name.toLowerCase().includes('readme')
+      ),
+      fileCount: repoDetails.data.length,
     } as ProjectData);
     description = enhancedDescription.description;
   }
 
   return {
     name: repo.name,
-    description: description || 'An amazing project showcasing modern development practices.',
+    description:
+      description ||
+      'An amazing project showcasing modern development practices.',
     stars: repo.stargazers_count,
     language: repo.language || 'JavaScript',
-    url: repo.html_url
+    url: repo.html_url,
   };
 }
 
 export async function getRecentActivity(): Promise<RecentActivity> {
   const contributions = await github.getContributionData(GITHUB_USERNAME);
 
-  const recentCommits = contributions.user.contributionsCollection.contributionCalendar.weeks
-    .slice(-12) // Last 12 weeks
-    .flatMap((week: any) => week.contributionDays)
-    .filter((day: any) => day.contributionCount > 0)
-    .slice(-30) // Last 30 contributions
-    .map((day: any) => ({
-      date: day.date,
-      count: day.contributionCount
-    }));
+  const recentCommits =
+    contributions.user.contributionsCollection.contributionCalendar.weeks
+      .slice(-12) // Last 12 weeks
+      .flatMap((week: any) => week.contributionDays)
+      .filter((day: any) => day.contributionCount > 0)
+      .slice(-30) // Last 30 contributions
+      .map((day: any) => ({
+        date: day.date,
+        count: day.contributionCount,
+      }));
 
   const recentRepos = await github.listUserRepos(GITHUB_USERNAME);
   const sortedRepos = recentRepos.data
     .filter((repo: any) => repo.pushed_at) // Only include repos with pushed_at
-    .sort((a: any, b: any) => new Date(b.pushed_at || '').getTime() - new Date(a.pushed_at || '').getTime())
+    .sort(
+      (a: any, b: any) =>
+        new Date(b.pushed_at || '').getTime() -
+        new Date(a.pushed_at || '').getTime()
+    )
     .slice(0, 5);
 
   return {
-    totalCommits: contributions.user.contributionsCollection.totalCommitContributions,
+    totalCommits:
+      contributions.user.contributionsCollection.totalCommitContributions,
     recentCommits,
     recentRepos: sortedRepos.map((repo: any) => ({
       name: repo.name,
       pushed_at: repo.pushed_at || '',
-      language: repo.language || 'Multiple Languages'
-    }))
+      language: repo.language || 'Multiple Languages',
+    })),
   };
 }
 
@@ -260,8 +288,8 @@ export async function getWakaTimeData(): Promise<WakaTimeData | null> {
       languages: stats.data.languages.slice(0, 6).map((lang: any) => ({
         name: lang.name,
         percent: Math.round(lang.percent),
-        hours: Math.round(lang.total_seconds / 3600)
-      }))
+        hours: Math.round(lang.total_seconds / 3600),
+      })),
     };
   } catch (error) {
     console.warn('Failed to fetch WakaTime data:', error);
