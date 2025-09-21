@@ -6,9 +6,6 @@
 <%= header.bio %>
 
 ### 📊 GitHub Statistics
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=vishals9711&show_icons=true&theme=radical&include_all_commits=true&count_private=false)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=vishals9711&layout=compact&theme=radical&langs_count=6)
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=vishals9711&theme=radical)
 
 </div>
 
@@ -17,16 +14,18 @@
 ![<%= t %>](https://img.shields.io/badge/<%= t.replace(/ /g, '%20') %>-informational?style=flat&logo=<%= t.toLowerCase().replace(/[^a-z0-9]/g, '') %>) <% }) %>
 
 ## 📈 GitHub Analytics
-| Metric | Value |
-|--------|-------|
-| 🌟 **Total Stars** | <%= stats.stars %> |
-| 💻 **Total Commits** | <%= stats.commits %> |
-| 🔀 **Pull Requests** | <%= stats.prs %> |
-| 🐛 **Issues Created** | <%= stats.issues %> |
-| 📁 **Repositories** | <%= stats.publicRepos %> |
-| 👥 **Followers** | <%= stats.followers %> |
-| 🎯 **Following** | <%= stats.following %> |
-| 📊 **Total Contributions** | <%= stats.totalContributions %> |
+
+<div align="center">
+
+| 🌟 **Total Stars** | 💻 **Total Commits** | 📁 **Repositories** | 📊 **Total Contributions** |
+|:------------------:|:-------------------:|:-------------------:|:--------------------------:|
+| <%= stats.stars %> | <%= stats.commits %> | <%= stats.publicRepos %> | <%= stats.totalContributions %> |
+
+| 👥 **Followers** | 🎯 **Following** | 🤝 **Contributed To** |
+|:---------------:|:----------------:|:-------------------:|
+| <%= stats.followers %> | <%= stats.following %> | <%= stats.contributedTo %> |
+
+</div>
 
 <% if (wakatimeData) { %>
 ## ⚡ Recent Coding Activity (WakaTime)
@@ -54,11 +53,16 @@
 <% } %>
 
 ## 💻 Language Breakdown
+
+<div align="center">
+
 | Language | Usage |
-|----------|-------|
+|:---------:|------:|
 <% Object.entries(languages).slice(0, 8).forEach(([lang, percentage]) => { %>
 | <%= lang %> | <%= percentage %>% |
 <% }) %>
+
+</div>
 
 ## 🌐 Connect With Me
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711)

@@ -9,8 +9,6 @@ interface ProfileData {
   stats: {
     stars: number;
     commits: number;
-    prs: number;
-    issues: number;
     contributedTo: number;
     followers?: number;
     following?: number;

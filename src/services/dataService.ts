@@ -28,8 +28,12 @@ export async function getHeaderAndBio(): Promise<HeaderData> {
   if (config.wakatime.enabled && config.wakatime.apiKey) {
     try {
       const wakatimeStats = await wakatime.getStats('last_7_days');
-      topLanguage = wakatimeStats.data.languages[0]?.name || topLanguage;
-      totalHours = Math.round(wakatimeStats.data.total_seconds / 3600);
+      if (wakatimeStats?.data?.languages?.length > 0) {
+        topLanguage = wakatimeStats.data.languages[0].name || topLanguage;
+      }
+      if (wakatimeStats?.data?.total_seconds) {
+        totalHours = Math.round(wakatimeStats.data.total_seconds / 3600);
+      }
     } catch (error) {
       console.warn('WakaTime API unavailable, using default values:', error);
     }
@@ -112,8 +116,6 @@ interface TechStackData {
 interface GithubStats {
   stars: number;
   commits: number;
-  prs: number;
-  issues: number;
   contributedTo: number;
   followers?: number;
   following?: number;
@@ -130,14 +132,12 @@ export async function getTechStack(): Promise<string[]> {
 }
 
 export async function getGithubStats(): Promise<GithubStats> {
-  const [userData, userRepos, issues, pullRequests, contributions] =
-    await Promise.all([
-      github.getUserData(GITHUB_USERNAME),
-      github.listAllUserRepos(GITHUB_USERNAME),
-      github.getSearchData(`is:issue author:${GITHUB_USERNAME}`),
-      github.getSearchData(`is:pr author:${GITHUB_USERNAME}`),
-      github.getContributionData(GITHUB_USERNAME),
-    ]);
+  // Following Octokit best practices: use simple, reliable endpoints
+  const [userData, userRepos, contributions] = await Promise.all([
+    github.getUserData(GITHUB_USERNAME),
+    github.listAllUserRepos(GITHUB_USERNAME),
+    github.getContributionData(GITHUB_USERNAME),
+  ]);
 
   const totalStars = userRepos.reduce(
     (acc, repo) => acc + repo.stargazers_count,
@@ -146,8 +146,6 @@ export async function getGithubStats(): Promise<GithubStats> {
 
   return {
     stars: totalStars,
-    issues: issues.data.total_count,
-    prs: pullRequests.data.total_count,
     commits:
       contributions.user.contributionsCollection.totalCommitContributions,
     contributedTo:
@@ -282,13 +280,25 @@ export async function getWakaTimeData(): Promise<WakaTimeData | null> {
   try {
     const stats = await wakatime.getStats('last_7_days');
 
+    // Debug the WakaTime response structure (safely)
+    console.log('WakaTime response:', JSON.stringify(stats?.data, null, 2));
+
+    // Handle different possible response structures
+    if (!stats?.data) {
+      console.warn('WakaTime response missing data property');
+      return null;
+    }
+
+    const totalSeconds = stats.data.total_seconds || 0;
+    const languages = stats.data.languages || [];
+
     return {
-      totalHours: Math.round(stats.data.total_seconds / 3600),
-      topLanguage: stats.data.languages[0]?.name || 'JavaScript',
-      languages: stats.data.languages.slice(0, 6).map((lang: any) => ({
+      totalHours: Math.round(totalSeconds / 3600),
+      topLanguage: languages.length > 0 ? languages[0].name : 'JavaScript',
+      languages: languages.slice(0, 6).map((lang: any) => ({
         name: lang.name,
-        percent: Math.round(lang.percent),
-        hours: Math.round(lang.total_seconds / 3600),
+        percent: Math.round(lang.percent || 0),
+        hours: Math.round((lang.total_seconds || 0) / 3600),
       })),
     };
   } catch (error) {

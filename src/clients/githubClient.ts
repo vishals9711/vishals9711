@@ -42,11 +42,6 @@ export async function listAllUserRepos(username: string): Promise<any[]> {
   });
 }
 
-export async function getSearchData(query: string): Promise<any> {
-  return octokit.search.issuesAndPullRequests({
-    q: query,
-  });
-}
 
 export async function getRepoLanguages(
   owner: string,
