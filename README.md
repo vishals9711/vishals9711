@@ -1,14 +1,8 @@
 # 👋 Hi there! I'm @vishals9711
 
-<div align="center">
-
 ## 🚀 About Me
 
 A passionate developer who thrives on bringing ideas to life through code, enthusiastically dedicating 24+ hours to building innovative solutions and constantly exploring new challenges, with &#39;Other&#39; languages always sparking my curiosity!
-
-### 📊 GitHub Statistics
-
-</div>
 
 ## 🛠️ Tech Stack
 

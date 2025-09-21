@@ -1,14 +1,9 @@
 # 👋 Hi there! I'm @<%= config.github.username %>
 
-<div align="center">
-
 ## 🚀 About Me
 
 <%= header.bio %>
 
-### 📊 GitHub Statistics
-
-</div>
 
 ## 🛠️ Tech Stack
 
@@ -25,8 +20,6 @@
 
 ## 📈 GitHub Analytics
 
-<div align="center">
-
 ### 📊 Main Statistics
 
 | 🌟 Stars | 💻 Commits | 📁 Repos | 📊 Contributions |
@@ -38,8 +31,6 @@
 | 👥 Followers | 🎯 Following | 🤝 Contributed To |
 |:------------:|:------------:|:-----------------:|
 | <%= stats.followers %> | <%= stats.following %> | <%= stats.contributedTo %> |
-
-</div>
 
 <% if (wakatimeData) { %>
 ## ⚡ Recent Coding Activity (WakaTime)
@@ -92,19 +83,7 @@
 
 ## 🌐 Connect With Me
 
-<% if (config.social.linkedin) { %>
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](<%= config.social.linkedin %>)
-<% } %>
-<% if (config.social.github) { %>
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](<%= config.social.github %>)
-<% } %>
-<% if (config.social.twitter) { %>
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](<%= config.social.twitter %>)
-<% } %>
-<% if (config.social.website) { %>
-[![Website](https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white)](<%= config.social.website %>)
-<% } %>
-
+<% if (config.social.linkedin) { %><a href="<%= config.social.linkedin %>"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a><% } %><% if (config.social.github) { %><a href="<%= config.social.github %>"><img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" alt="GitHub"></a><% } %><% if (config.social.twitter) { %><a href="<%= config.social.twitter %>"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white" alt="Twitter"></a><% } %><% if (config.social.website) { %><a href="<%= config.social.website %>"><img src="https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white" alt="Website"></a><% } %>
 ---
 
 <div align="center">
