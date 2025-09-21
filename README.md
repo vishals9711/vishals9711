@@ -2,30 +2,34 @@
 
 ## 🚀 About Me
 
-A passionate developer who thrives on bringing ideas to life through code, enthusiastically dedicating 24+ hours to building innovative solutions and constantly exploring new challenges, with &#39;Other&#39; languages always sparking my curiosity!
+Passionate about crafting innovative solutions, I&#39;ve dedicated 24 hours to coding, constantly exploring diverse technologies beyond a single top language to build amazing things!
+
 
 ## 🛠️ Tech Stack
 
 ### 🚀 Technologies I Work With
 
 ![React](https://img.shields.io/badge/React-20232a?style=flat&amp;logo=react)
+![Angular](https://img.shields.io/badge/Angular-c3002b?style=flat&amp;logo=angular)
+![Vue.js](https://img.shields.io/badge/Vue.js-007acc?style=flat)
 ![Node.js](https://img.shields.io/badge/Node.js-2d6a2b?style=flat&amp;logo=nodedotjs)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&amp;logo=express)
-![Angular](https://img.shields.io/badge/Angular-c3002b?style=flat&amp;logo=angular)
 ![NestJS](https://img.shields.io/badge/NestJS-007acc?style=flat)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&amp;logo=nextdotjs)
+![npm](https://img.shields.io/badge/npm-007acc?style=flat)
+![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
+![Jest](https://img.shields.io/badge/Jest-c21325?style=flat&amp;logo=jest)
+![ESLint](https://img.shields.io/badge/ESLint-4b32c3?style=flat&amp;logo=eslint)
+![Sass](https://img.shields.io/badge/Sass-a53d6d?style=flat&amp;logo=sass)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-03697c?style=flat&amp;logo=tailwindcss)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-007acc?style=flat)
-![Python](https://img.shields.io/badge/Python-2b5b84?style=flat&amp;logo=python)
 ![Pandas](https://img.shields.io/badge/Pandas-007acc?style=flat)
 ![NumPy](https://img.shields.io/badge/NumPy-007acc?style=flat)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-007acc?style=flat)
 ![Scikit-learn](https://img.shields.io/badge/Scikit-learn-007acc?style=flat)
-![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-007acc?style=flat)
-![Sequelize](https://img.shields.io/badge/Sequelize-007acc?style=flat)
-![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
-![Vite](https://img.shields.io/badge/Vite-4a50d6?style=flat&amp;logo=vite)
-![Jest](https://img.shields.io/badge/Jest-c21325?style=flat&amp;logo=jest)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-007acc?style=flat)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-007acc?style=flat)
+![Dapper](https://img.shields.io/badge/Dapper-007acc?style=flat)
+![Entity Framework](https://img.shields.io/badge/Entity%20Framework-007acc?style=flat)
 
 ### 💡 Skills
 - **Programming Languages**: JavaScript, TypeScript, Python, Java
@@ -36,21 +40,17 @@ A passionate developer who thrives on bringing ideas to life through code, enthu
 
 ## 📈 GitHub Analytics
 
-<div align="center">
-
 ### 📊 Main Statistics
 
 | 🌟 Stars | 💻 Commits | 📁 Repos | 📊 Contributions |
 |:--------:|:----------:|:--------:|:----------------:|
-| 4 | 58 | 47 | 1317 |
+| 4 | 62 | 47 | 1321 |
 
 ### 👥 Community
 
 | 👥 Followers | 🎯 Following | 🤝 Contributed To |
 |:------------:|:------------:|:-----------------:|
 | 5 | 13 | 4 |
-
-</div>
 
 
 ## ⚡ Recent Coding Activity (WakaTime)
@@ -70,7 +70,7 @@ A passionate developer who thrives on bringing ideas to life through code, enthu
 
 ## 🚀 Featured Project
 ### **[vishals9711](https://github.com/vishals9711/vishals9711)**
-Engineered with TypeScript, this project delivers a highly maintainable and type-safe solution, setting a robust foundation for development. Its well-structured codebase and accompanying README reflect a dedication to clarity and best practices, ensuring reliability and effortless scalability for future enhancements.
+Explore `vishals9711`, a thoughtfully architected project built with TypeScript, showcasing a commitment to robust, type-safe development. This initiative establishes a strong, maintainable foundation, designed for scalability and clarity. With its well-defined structure and accompanying README, it serves as a prime example of modern best practices in action, offering valuable insights into building high-quality, efficient applications.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-informational?style=flat&logo=typescript)
 ![Stars](https://img.shields.io/badge/Stars-0-yellow?style=flat)
@@ -93,7 +93,7 @@ Engineered with TypeScript, this project delivers a highly maintainable and type
 
 
 ### 📊 Recent Contributions
-- **58** total commits across all repositories
+- **62** total commits across all repositories
 - **30** commits in the last 30 days
 
 
@@ -136,26 +136,14 @@ Engineered with TypeScript, this project delivers a highly maintainable and type
 
 ## 🌐 Connect With Me
 
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711)
-
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/vishals9711)
-
-
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](https://x.com/vishals1197)
-
-
-[![Website](https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white)](https://www.vishalrsharma.dev/)
-
-
+<a href="https://linkedin.com/in/vishals9711"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a><a href="https://github.com/vishals9711"><img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" alt="GitHub"></a><a href="https://x.com/vishals1197"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white" alt="Twitter"></a><a href="https://www.vishalrsharma.dev/"><img src="https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white" alt="Website"></a>
 ---
 
 <div align="center">
 
 **Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
 
-*Last updated: Sep 21, 2025, 02:48 AM UTC*
+*Last updated: Sep 21, 2025, 03:04 AM UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 
