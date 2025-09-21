@@ -42,7 +42,6 @@ export async function generateBio(data: BioData): Promise<BioResponse> {
       },
     },
   });
-  console.log(result);
 
   return JSON.parse(result.text || '');
 }
@@ -78,7 +77,6 @@ export async function generateProjectDescription(
       },
     },
   });
-  console.log(result);
 
   return JSON.parse(result.text || '');
 }
@@ -117,7 +115,6 @@ export async function generateTechStack(
       },
     },
   });
-  console.log(result);
 
   return JSON.parse(result.text || '');
 }

@@ -41,7 +41,7 @@ export async function getHeaderAndBio(): Promise<HeaderData> {
       console.warn('WakaTime API unavailable, using default values:', error);
     }
   } else {
-    console.log('WakaTime not configured, using default values');
+    console.warn('WakaTime not configured, using default values');
   }
 
   // Get latest repository
@@ -227,7 +227,6 @@ export async function getWakaTimeData(): Promise<WakaTimeData | null> {
     const stats = await wakatime.getStats('last_7_days');
 
     // Debug the WakaTime response structure (safely)
-    console.log('WakaTime response:', JSON.stringify(stats, null, 2));
 
     const totalSeconds = stats.total_seconds || 0;
     const languages = stats.languages || [];
