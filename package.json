@@ -3,20 +3,32 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Automated GitHub profile README generator using Node.js and Google Gemini",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "echo \"Run 'pnpm start' with valid API keys to test the application\" && exit 0"
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "test": "echo \"Run 'pnpm start' with valid API keys to test the application\" && exit 0",
+    "type-check": "tsc --noEmit",
+    "lint": "biome lint --write --unsafe",
+    "format": "biome format --write"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["github", "readme", "automation", "profile", "typescript"],
+  "author": "vishals9711",
+  "license": "MIT",
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
-    "@octokit/graphql": "^8.0.0",
-    "@octokit/rest": "^21.0.1",
-    "axios": "^1.7.2",
-    "dotenv": "^16.4.5",
+    "@google/genai": "^1.20.0",
+    "@octokit/graphql": "^8.2.2",
+    "@octokit/rest": "^21.1.1",
+    "badge-maker": "^5.0.2",
+    "dotenv": "^16.6.1",
     "ejs": "^3.1.10"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.4",
+    "@types/ejs": "^3.1.5",
+    "@types/node": "^20.19.17",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
   }
 }

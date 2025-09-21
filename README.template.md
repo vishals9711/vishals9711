@@ -1,47 +1,83 @@
-# 💫 About Me:
+# 👋 Hi there! I'm @vishals9711
+
+<div align="center">
+
+## 🚀 About Me
 <%= header.bio %>
 
-## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711) 
+### 📊 GitHub Statistics
 
-# 💻 Tech Stack:
-<% techStack.forEach(t => { %>![<%= t %>](https://img.shields.io/badge/<%= t.replace(/ /g, '%20') %>-%23<%= Math.floor(Math.random()*16777215).toString(16) %>.svg?style=for-the-badge&logo=<%= t.toLowerCase().replace(/ /g, '') %>&logoColor=white) <% }) %>
+</div>
 
-# 📊 GitHub Stats:
-| Key                | Value                |
-| ------------------ | -------------------- |
-| ⭐ Total Stars     | <%= stats.stars %>   |
-| Commits            | <%= stats.commits %> |
-| Pull Requests      | <%= stats.prs %>     |
-| Issues             | <%= stats.issues %>  |
-| Contributed to     | <%= stats.contributedTo %> |
+## 🛠️ Tech Stack
+<% techStack.forEach(t => { %>
+![<%= t %>](https://img.shields.io/badge/<%= t.replace(/ /g, '%20') %>-informational?style=flat&logo=<%= t.toLowerCase().replace(/[^a-z0-9]/g, '') %>) <% }) %>
 
----
+## 📈 GitHub Analytics
 
-### 🚀 Project Spotlight
+<div align="center">
 
-**[<%= spotlight.name %>](https://github.com/vishals9711/<%= spotlight.name %>)**
+| 🌟 **Total Stars** | 💻 **Total Commits** | 📁 **Repositories** | 📊 **Total Contributions** |
+|:------------------:|:-------------------:|:-------------------:|:--------------------------:|
+| <%= stats.stars %> | <%= stats.commits %> | <%= stats.publicRepos %> | <%= stats.totalContributions %> |
 
-<%= spotlight.description || "An amazing project showcasing modern development practices and innovative solutions." %>
+| 👥 **Followers** | 🎯 **Following** | 🤝 **Contributed To** |
+|:---------------:|:----------------:|:-------------------:|
+| <%= stats.followers %> | <%= stats.following %> | <%= stats.contributedTo %> |
 
-⭐ **<%= spotlight.stars %>** stars | 💻 **<%= spotlight.language %>** | 🔗 **[View Project](https://github.com/vishals9711/<%= spotlight.name %>)**
+</div>
 
----
+<% if (wakatimeData) { %>
+## ⚡ Recent Coding Activity (WakaTime)
+⏰ **<%= wakatimeData.totalHours %> hours** of coding in the last 7 days
 
-## 💻 Most Used Languages
-| Language           | Percentage           |
-| ------------------ | -------------------- |
-<% for(let lang in languages) { %>
-| <%= lang %>        | <%= languages[lang] %>% |
+**Top Languages:**
+<% wakatimeData.languages.forEach(lang => { %>
+- **<%= lang.name %>**: <%= lang.percent %>% (<%= lang.hours %> hrs)
+<% }) %>
 <% } %>
 
+## 🚀 Featured Project
+### **[<%= spotlight.name %>](<%= spotlight.url %>)**
+<%= spotlight.description %>
+
+![<%= spotlight.language %>](https://img.shields.io/badge/<%= spotlight.language %>-informational?style=flat&logo=<%= spotlight.language.toLowerCase() %>)
+![Stars](https://img.shields.io/badge/Stars-<%= spotlight.stars %>-yellow?style=flat)
+
+## 📝 Recent Activity
+<% if (recentActivity.recentRepos && recentActivity.recentRepos.length > 0) { %>
+**Recently Updated Repositories:**
+<% recentActivity.recentRepos.forEach(repo => { %>
+- **[<%= repo.name %>](https://github.com/vishals9711/<%= repo.name %>)** - <%= repo.language || 'Multiple Languages' %>
+<% }) %>
+<% } %>
+
+## 💻 Language Breakdown
+
+<div align="center">
+
+| Language | Usage |
+|:---------:|------:|
+<% Object.entries(languages).slice(0, 8).forEach(([lang, percentage]) => { %>
+| <%= lang %> | <%= percentage %>% |
+<% }) %>
+
+</div>
+
+## 🌐 Connect With Me
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/vishals9711)
+
 ---
 
-*Last updated: <%= new Date().toUTCString() %>*
+<div align="center">
+
+**Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
+
+*Last updated: <%= new Date().toLocaleString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) %> UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 
----
-[![](https://visitcount.itsvg.in/api?id=vishals9711&icon=0&color=9)](https://visitcount.itsvg.in)
+</div>
 
 <!-- Proudly created with Profile Dynamo -->

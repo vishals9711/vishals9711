@@ -1,0 +1,41 @@
+name: 'Profile Dynamo'
+description: 'Automated GitHub profile README generator with comprehensive stats and modern design'
+author: 'vishals9711'
+branding:
+  icon: 'user'
+  color: 'blue'
+
+inputs:
+  github-username:
+    description: 'GitHub username for profile generation'
+    required: true
+    default: 'vishals9711'
+  github-token:
+    description: 'GitHub personal access token'
+    required: true
+  wakatime-api-key:
+    description: 'WakaTime API key (optional - provides coding activity stats)'
+    required: false
+  llm-api-key:
+    description: 'LLM API key for generating descriptions and bios'
+    required: true
+  readme-path:
+    description: 'Path to output README file'
+    required: false
+    default: 'README.md'
+  template-path:
+    description: 'Path to README template file'
+    required: false
+    default: 'README.template.md'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+metadata:
+  tags:
+    - github
+    - readme
+    - automation
+    - profile
+    - statistics

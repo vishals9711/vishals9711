@@ -2,19 +2,17 @@ name: Update Profile README
 
 on:
   schedule:
-    # Run every Sunday at 05:00 UTC (Requirement 2.1)
     - cron: '0 5 * * 0'
-  workflow_dispatch: # Allow manual triggering for testing
+  workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     
     permissions:
-      contents: write # Required for git auto-commit functionality
+      contents: write
     
     steps:
-      # Requirement 2.2: Check out the repository code successfully
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -29,7 +27,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Use a recent Node.js version
+          node-version: '20'
           cache: 'pnpm'
       
       - name: Get pnpm store directory
@@ -56,28 +54,23 @@ jobs:
         run: |
           pnpm start
       
-      # Requirement 2.5: Automatically commit the updated file to main branch
-      # Requirement 2.6: Handle errors gracefully without breaking the repository
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # Check if there are changes to commit
           if git diff --quiet HEAD -- README.md; then
             echo "No changes to README.md, skipping commit"
             exit 0
           fi
           
-          # Stage and commit changes
           git add README.md
           git commit -m "🤖 Update profile README with latest stats"
           
-          # Push changes with error handling
           if ! git push; then
             echo "Failed to push changes, but not failing the workflow"
             exit 0
           fi
           
           echo "Successfully updated profile README"
-        continue-on-error: true # Ensures workflow doesn't fail if git operations have issues
+        continue-on-error: true

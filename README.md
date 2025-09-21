@@ -1,64 +1,127 @@
-# 💫 About Me:
-Driven by an insatiable passion for code, I&#39;ve already poured 24 dedicated hours into building, eagerly exploring a diverse tech landscape beyond my &#39;Other&#39; primary language!
+# 👋 Hi there! I'm @vishals9711
 
-## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711) 
+<div align="center">
 
-# 💻 Tech Stack:
-![JavaScript](https://img.shields.io/badge/JavaScript-%23664aad.svg?style=for-the-badge&logo=javascript&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-%23c89ef7.svg?style=for-the-badge&logo=typescript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-%23e301bd.svg?style=for-the-badge&logo=html&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-%2341b262.svg?style=for-the-badge&logo=css&logoColor=white) ![SCSS](https://img.shields.io/badge/SCSS-%2337800c.svg?style=for-the-badge&logo=scss&logoColor=white) ![React](https://img.shields.io/badge/React-%231b26de.svg?style=for-the-badge&logo=react&logoColor=white) ![Angular](https://img.shields.io/badge/Angular-%23a129fc.svg?style=for-the-badge&logo=angular&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-%23838087.svg?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/Express.js-%2330543b.svg?style=for-the-badge&logo=express.js&logoColor=white) ![NestJS](https://img.shields.io/badge/NestJS-%23eb2327.svg?style=for-the-badge&logo=nestjs&logoColor=white) ![Handlebars](https://img.shields.io/badge/Handlebars-%23ea9643.svg?style=for-the-badge&logo=handlebars&logoColor=white) ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-%2322bc50.svg?style=for-the-badge&logo=microsoftsqlserver&logoColor=white) ![TSQL](https://img.shields.io/badge/TSQL-%2359ce34.svg?style=for-the-badge&logo=tsql&logoColor=white) ![TypeORM](https://img.shields.io/badge/TypeORM-%23ab7ed4.svg?style=for-the-badge&logo=typeorm&logoColor=white) ![Python](https://img.shields.io/badge/Python-%2340c237.svg?style=for-the-badge&logo=python&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-%23b7c570.svg?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-%23196387.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23e3d8ff.svg?style=for-the-badge&logo=matplotlib&logoColor=white) ![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-%2317d989.svg?style=for-the-badge&logo=jupyternotebook&logoColor=white) ![Git](https://img.shields.io/badge/Git-%23d4dfff.svg?style=for-the-badge&logo=git&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-%23f9a563.svg?style=for-the-badge&logo=docker&logoColor=white) ![REST APIs](https://img.shields.io/badge/REST%20APIs-%239ade0a.svg?style=for-the-badge&logo=restapis&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%23779089.svg?style=for-the-badge&logo=tailwindcss&logoColor=white) ![Jest](https://img.shields.io/badge/Jest-%2389d374.svg?style=for-the-badge&logo=jest&logoColor=white) 
+## 🚀 About Me
+As vishals9711, I&#39;ve poured 24 enthusiastic hours into exploring the vast world of &#39;Other&#39; languages, constantly building and passionately coding new frontiers!
 
-# 📊 GitHub Stats:
-| Key                | Value                |
-| ------------------ | -------------------- |
-| ⭐ Total Stars     | 4   |
-| Commits            | 53 |
-| Pull Requests      | 63     |
-| Issues             | 52  |
-| Contributed to     | 4 |
+### 📊 GitHub Statistics
 
-## 🏆 GitHub Trophies
-![Trophies](https://github-profile-trophy.vercel.app/?username=vishals9711&theme=radical&no-frame=false&no-bg=true&margin-w=4)
+</div>
+
+## 🛠️ Tech Stack
+
+![React](https://img.shields.io/badge/React-informational?style=flat&logo=react) 
+![Angular](https://img.shields.io/badge/Angular-informational?style=flat&logo=angular) 
+![Node.js](https://img.shields.io/badge/Node.js-informational?style=flat&logo=nodejs) 
+![Express.js](https://img.shields.io/badge/Express.js-informational?style=flat&logo=expressjs) 
+![NestJS](https://img.shields.io/badge/NestJS-informational?style=flat&logo=nestjs) 
+![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-informational?style=flat&logo=microsoftsqlserver) 
+![TypeORM](https://img.shields.io/badge/TypeORM-informational?style=flat&logo=typeorm) 
+![Webpack](https://img.shields.io/badge/Webpack-informational?style=flat&logo=webpack) 
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-informational?style=flat&logo=tailwindcss) 
+![Pandas](https://img.shields.io/badge/Pandas-informational?style=flat&logo=pandas) 
+![NumPy](https://img.shields.io/badge/NumPy-informational?style=flat&logo=numpy) 
+![Jest](https://img.shields.io/badge/Jest-informational?style=flat&logo=jest) 
+![Next.js](https://img.shields.io/badge/Next.js-informational?style=flat&logo=nextjs) 
+
+## 📈 GitHub Analytics
+
+<div align="center">
+
+| 🌟 **Total Stars** | 💻 **Total Commits** | 📁 **Repositories** | 📊 **Total Contributions** |
+|:------------------:|:-------------------:|:-------------------:|:--------------------------:|
+| 4 | 55 | 47 | 1313 |
+
+| 👥 **Followers** | 🎯 **Following** | 🤝 **Contributed To** |
+|:---------------:|:----------------:|:-------------------:|
+| 5 | 13 | 4 |
+
+</div>
+
+
+## ⚡ Recent Coding Activity (WakaTime)
+⏰ **24 hours** of coding in the last 7 days
+
+**Top Languages:**
+
+- **Other**: 25% (8 hrs)
+
+- **TypeScript**: 21% (7 hrs)
+
+- **Markdown**: 20% (6 hrs)
+
+- **JavaScript**: 14% (4 hrs)
+
+- **Swift**: 10% (3 hrs)
+
+- **JSON**: 4% (1 hrs)
+
+
+
+## 🚀 Featured Project
+### **[vishals9711](https://github.com/vishals9711/vishals9711)**
+Explore a meticulously crafted JavaScript project that exemplifies clean code and efficient design principles. This robust solution, built with modern web technologies, delivers focused functionality, showcasing the power and versatility of JavaScript development. Its distinctive value lies in its elegant architecture and innovative approach to common challenges, making it an essential reference for developers aiming for high-quality, extensible applications.
+
+![JavaScript](https://img.shields.io/badge/JavaScript-informational?style=flat&logo=javascript)
+![Stars](https://img.shields.io/badge/Stars-0-yellow?style=flat)
+
+## 📝 Recent Activity
+
+**Recently Updated Repositories:**
+
+- **[vishals9711](https://github.com/vishals9711/vishals9711)** - JavaScript
+
+- **[personal-app](https://github.com/vishals9711/personal-app)** - TypeScript
+
+- **[task-crafter](https://github.com/vishals9711/task-crafter)** - TypeScript
+
+- **[portfolio](https://github.com/vishals9711/portfolio)** - TypeScript
+
+- **[react-sample-app](https://github.com/vishals9711/react-sample-app)** - TypeScript
+
+
+
+## 💻 Language Breakdown
+
+<div align="center">
+
+| Language | Usage |
+|:---------:|------:|
+
+| JavaScript | 43.15% |
+
+| TypeScript | 33.59% |
+
+| SCSS | 9.04% |
+
+| Jupyter Notebook | 3.35% |
+
+| HTML | 2.89% |
+
+| Handlebars | 2.86% |
+
+| CSS | 2.33% |
+
+| TSQL | 1.31% |
+
+
+</div>
+
+## 🌐 Connect With Me
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/vishals9711)
 
 ---
 
-### 🚀 Project Spotlight
+<div align="center">
 
-**[vishals9711](https://github.com/vishals9711/vishals9711)**
+**Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
 
-Explore `vishals9711`, a focused JavaScript project engineered to provide a clear, modular solution to contemporary development needs. This repository leverages the power and flexibility of JavaScript, presenting a concise architecture ideal for utility development or serving as a foundational component. Its emphasis on clean code and efficient implementation offers valuable insights for building maintainable and scalable applications within the JavaScript ecosystem.
-
-⭐ **0** stars | 💻 **JavaScript** | 🔗 **[View Project](https://github.com/vishals9711/vishals9711)**
-
----
-
-## 💻 Most Used Languages
-| Language           | Percentage           |
-| ------------------ | -------------------- |
-
-| JavaScript        | 43.16% |
-
-| TypeScript        | 33.59% |
-
-| SCSS        | 9.04% |
-
-| Jupyter Notebook        | 3.35% |
-
-| HTML        | 2.89% |
-
-| Handlebars        | 2.86% |
-
-| CSS        | 2.33% |
-
-| TSQL        | 1.31% |
-
-
----
-
-*Last updated: Sat, 20 Sep 2025 22:51:09 GMT*
+*Last updated: Sep 21, 2025, 01:30 AM UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 
----
-[![](https://visitcount.itsvg.in/api?id=vishals9711&icon=0&color=9)](https://visitcount.itsvg.in)
+</div>
 
 <!-- Proudly created with Profile Dynamo -->
