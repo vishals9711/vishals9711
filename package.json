@@ -13,22 +13,28 @@
     "lint": "biome lint --write --unsafe",
     "format": "biome format --write"
   },
-  "keywords": ["github", "readme", "automation", "profile", "typescript"],
+  "keywords": [
+    "github",
+    "readme",
+    "automation",
+    "profile",
+    "typescript"
+  ],
   "author": "vishals9711",
   "license": "MIT",
   "dependencies": {
     "@google/genai": "^1.20.0",
-    "@octokit/graphql": "^8.0.0",
-    "@octokit/rest": "^21.0.1",
+    "@octokit/graphql": "^8.2.2",
+    "@octokit/rest": "^21.1.1",
     "badge-maker": "^5.0.2",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.6.1",
     "ejs": "^3.1.10"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
     "@types/ejs": "^3.1.5",
-    "@types/node": "^20.10.0",
-    "tsx": "^4.7.0",
-    "typescript": "^5.3.0"
+    "@types/node": "^20.19.17",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
   }
 }
