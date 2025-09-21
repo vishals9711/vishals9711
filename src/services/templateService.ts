@@ -4,7 +4,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { ProfileData } from '../types';
 import { getConfig } from '../config/config';
-import { generateTechBadge, generatePercentageBadge } from '../utils/badgeGenerator.js';
+import {
+  generateTechBadge,
+  generatePercentageBadge,
+} from '../utils/badgeGenerator.js';
 
 interface TemplateData extends ProfileData {
   config: {

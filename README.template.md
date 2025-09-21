@@ -49,9 +49,8 @@
 ### 📊 Language Activity
 | Language | Usage | Hours |
 |:---------|-------:|------:|
-<% wakatimeData.languages.slice(0, 5).forEach(lang => { %>
-| `<%= lang.name %>` | <%= lang.percent %>% | <%= lang.hours %> |
-<% }) %>
+<% wakatimeData.languages.slice(0, 5).forEach(lang => { %>| `<%= lang.name %>` | <%= lang.percent %>% | <%= lang.hours %> |
+<% }); %>
 <% } %>
 
 ## 🚀 Featured Project
@@ -88,13 +87,23 @@
 
 | Language | Percentage | Usage |
 |:---------|-----------:|-------|
-<% sortedLanguages.forEach(([lang, percentage]) => { %>
-| `<%= lang %>` | <%= percentage %>% | Primary language for <%= lang %> projects |
-<% }) %>
+<% sortedLanguages.forEach(([lang, percentage]) => { %>| `<%= lang %>` | <%= percentage %>% | Primary language for <%= lang %> projects |
+<% }); %>
 
 ## 🌐 Connect With Me
 
-<% if (config.social.linkedin) { %>[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](<%= config.social.linkedin %>)<% } %><% if (config.social.github) { %> [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](<%= config.social.github %>)<% } %><% if (config.social.twitter) { %> [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](<%= config.social.twitter %>)<% } %><% if (config.social.website) { %> [![Website](https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white)](<%= config.social.website %>)<% } %>
+<% if (config.social.linkedin) { %>
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](<%= config.social.linkedin %>)
+<% } %>
+<% if (config.social.github) { %>
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](<%= config.social.github %>)
+<% } %>
+<% if (config.social.twitter) { %>
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](<%= config.social.twitter %>)
+<% } %>
+<% if (config.social.website) { %>
+[![Website](https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white)](<%= config.social.website %>)
+<% } %>
 
 ---
 
