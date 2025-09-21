@@ -10,7 +10,7 @@
     "build": "tsc",
     "test": "echo \"Run 'pnpm start' with valid API keys to test the application\" && exit 0",
     "type-check": "tsc --noEmit",
-    "lint": "biome lint --write",
+    "lint": "biome lint --write --unsafe",
     "format": "biome format --write"
   },
   "keywords": ["github", "readme", "automation", "profile", "typescript"],
@@ -20,7 +20,6 @@
     "@google/genai": "^1.20.0",
     "@octokit/graphql": "^8.0.0",
     "@octokit/rest": "^21.0.1",
-    "axios": "^1.7.2",
     "badge-maker": "^5.0.2",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10"

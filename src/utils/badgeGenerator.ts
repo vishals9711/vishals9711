@@ -1,4 +1,4 @@
-import { makeBadge } from 'badge-maker';
+import { Format, makeBadge } from 'badge-maker';
 
 interface BadgeOptions {
   label: string;
@@ -17,8 +17,9 @@ export function generateBadge({
   logo,
   logoColor = 'white',
 }: BadgeOptions): string {
-  const format: any = {
-    text: [label, message],
+  const format: Format = {
+    label,
+    message,
     color,
     style,
     ...(logo && { logo }),

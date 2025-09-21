@@ -3,6 +3,18 @@ import * as wakatime from '../clients/wakatimeClient.js';
 import * as llm from '../clients/llmClient.js';
 import { getConfig } from '../config/config.js';
 
+interface WakaTimeLanguage {
+  name: string | null;
+  total_seconds: number;
+  percent: number;
+  digital: string;
+  decimal: string;
+  text: string;
+  hours: number;
+  minutes: number;
+  seconds?: number;
+}
+
 const config = getConfig();
 const GITHUB_USERNAME = config.github.username;
 
@@ -28,11 +40,14 @@ export async function getHeaderAndBio(): Promise<HeaderData> {
   if (config.wakatime.enabled && config.wakatime.apiKey) {
     try {
       const wakatimeStats = await wakatime.getStats('last_7_days');
-      if (wakatimeStats?.data?.languages?.length > 0) {
-        topLanguage = wakatimeStats.data.languages[0].name || topLanguage;
+      const languages = wakatimeStats.languages || [];
+      const totalSeconds = wakatimeStats.total_seconds || 0;
+
+      if (languages.length > 0 && languages[0]?.name) {
+        topLanguage = languages[0]?.name;
       }
-      if (wakatimeStats?.data?.total_seconds) {
-        totalHours = Math.round(wakatimeStats.data.total_seconds / 3600);
+      if (totalSeconds) {
+        totalHours = Math.round(totalSeconds / 3600);
       }
     } catch (error) {
       console.warn('WakaTime API unavailable, using default values:', error);
@@ -192,11 +207,7 @@ interface RecentActivity {
 interface WakaTimeData {
   totalHours: number;
   topLanguage: string;
-  languages: Array<{
-    name: string;
-    percent: number;
-    hours: number;
-  }>;
+  languages: WakaTimeLanguage[];
 }
 
 export async function getProjectSpotlight(): Promise<ProjectSpotlight> {
@@ -281,24 +292,26 @@ export async function getWakaTimeData(): Promise<WakaTimeData | null> {
     const stats = await wakatime.getStats('last_7_days');
 
     // Debug the WakaTime response structure (safely)
-    console.log('WakaTime response:', JSON.stringify(stats?.data, null, 2));
+    console.log('WakaTime response:', JSON.stringify(stats, null, 2));
 
-    // Handle different possible response structures
-    if (!stats?.data) {
-      console.warn('WakaTime response missing data property');
-      return null;
-    }
-
-    const totalSeconds = stats.data.total_seconds || 0;
-    const languages = stats.data.languages || [];
+    const totalSeconds = stats.total_seconds || 0;
+    const languages = stats.languages || [];
 
     return {
       totalHours: Math.round(totalSeconds / 3600),
-      topLanguage: languages.length > 0 ? languages[0].name : 'JavaScript',
-      languages: languages.slice(0, 6).map((lang: any) => ({
-        name: lang.name,
+      topLanguage:
+        languages.length > 0
+          ? languages[0]?.name || 'JavaScript'
+          : 'JavaScript',
+      languages: languages.slice(0, 6).map((lang: WakaTimeLanguage) => ({
+        name: lang.name || 'JavaScript',
         percent: Math.round(lang.percent || 0),
         hours: Math.round((lang.total_seconds || 0) / 3600),
+        total_seconds: lang.total_seconds,
+        digital: lang.digital,
+        decimal: lang.decimal,
+        text: lang.text,
+        minutes: lang.minutes,
       })),
     };
   } catch (error) {
