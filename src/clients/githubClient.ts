@@ -1,5 +1,14 @@
 import { Octokit } from '@octokit/rest';
 import { graphql } from '@octokit/graphql';
+import {
+  GitHubUser,
+  GitHubRepo,
+  GitHubRepoArray,
+  GitHubLanguages,
+  GitHubRepoContent,
+  GitHubContributionData,
+  GitHubPublicEvents,
+} from '../types';
 
 if (!process.env.GH_PAT_TOKEN) {
   throw new Error('GH_PAT_TOKEN environment variable is required');
@@ -14,70 +23,6 @@ const graphqlWithAuth = graphql.defaults({
     authorization: `token ${process.env.GH_PAT_TOKEN}`,
   },
 });
-
-// GitHub API response interfaces
-interface GitHubUser {
-  data: {
-    followers: number;
-    following: number;
-    public_repos: number;
-  };
-}
-
-interface GitHubRepo {
-  name: string;
-  stargazers_count?: number;
-  language?: string | null;
-  html_url: string;
-  pushed_at: string | null;
-  description: string | null;
-}
-
-interface GitHubRepoArray {
-  data: GitHubRepo[];
-}
-
-interface GitHubLanguages {
-  data: Record<string, number>;
-}
-
-interface GitHubRepoContent {
-  data: Array<{
-    name: string;
-    type?: string;
-    size?: number;
-    path?: string;
-  }>;
-}
-
-interface GitHubContributionData {
-  user: {
-    contributionsCollection: {
-      totalCommitContributions: number;
-      totalRepositoriesWithContributedCommits: number;
-      contributionCalendar: {
-        totalContributions: number;
-        weeks: Array<{
-          contributionDays: Array<{
-            contributionCount: number;
-            date: string;
-          }>;
-        }>;
-      };
-    };
-  };
-}
-
-interface GitHubEvent {
-  type: string | null;
-  repo: {
-    name: string;
-  };
-}
-
-interface GitHubPublicEvents {
-  data: GitHubEvent[];
-}
 
 export async function getUserData(username: string): Promise<GitHubUser> {
   return octokit.users.getByUsername({ username });

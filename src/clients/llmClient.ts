@@ -1,4 +1,12 @@
 import { GoogleGenAI } from '@google/genai';
+import {
+  BioData,
+  BioResponse,
+  ProjectData,
+  ProjectResponse,
+  TechStackData,
+  TechStackResponse,
+} from '../types';
 
 // Support both old and new environment variable names
 const apiKey = process.env.LLM_API_KEY || process.env.GOOGLE_API_KEY;
@@ -10,37 +18,6 @@ if (!apiKey) {
 
 const genAI = new GoogleGenAI({ apiKey });
 const MODEL_NAME = 'gemini-2.5-flash';
-
-interface BioData {
-  topLanguage: string;
-  latestRepo: string;
-  totalHours: number;
-  username: string;
-}
-
-interface BioResponse {
-  bio: string;
-}
-
-interface ProjectData {
-  repoName: string;
-  language: string;
-  stars: number;
-  hasReadme: boolean;
-  fileCount: number;
-}
-
-interface ProjectResponse {
-  description: string;
-}
-
-interface TechStackData {
-  languages: string[];
-}
-
-interface TechStackResponse {
-  techStack: string[];
-}
 
 export async function generateBio(data: BioData): Promise<BioResponse> {
   const prompt = `Based on the following data, generate a dynamic, engaging one-sentence bio for a GitHub profile. Make it personal, enthusiastic, and showcase the developer's passion for coding. Include their top language and coding hours.

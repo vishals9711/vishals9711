@@ -2,32 +2,20 @@ import * as github from '../clients/githubClient.js';
 import * as wakatime from '../clients/wakatimeClient.js';
 import * as llm from '../clients/llmClient.js';
 import { getConfig } from '../config/config.js';
-
-interface WakaTimeLanguage {
-  name: string;
-  total_seconds: number;
-  percent: number;
-  digital: string;
-  decimal: string;
-  text: string;
-  hours: number;
-  minutes: number;
-  seconds?: number;
-}
+import {
+  HeaderData,
+  LanguagesData,
+  TechStackData,
+  GithubStats,
+  ProjectSpotlight,
+  RecentActivity,
+  WakaTimeData,
+} from '../types';
+import { WakaTimeLanguage } from '../types';
+import { BioData, ProjectData } from '../types';
 
 const config = getConfig();
 const GITHUB_USERNAME = config.github.username;
-
-interface BioData {
-  topLanguage: string;
-  latestRepo: string;
-  totalHours: number;
-  username: string;
-}
-
-interface HeaderData {
-  bio: string;
-}
 
 export async function getHeaderAndBio(): Promise<HeaderData> {
   const userReposPromise = github.listUserRepos(GITHUB_USERNAME);
@@ -72,10 +60,6 @@ export async function getHeaderAndBio(): Promise<HeaderData> {
   } as BioData);
 
   return { bio: bioData.bio };
-}
-
-interface LanguagesData {
-  [language: string]: string; // language -> percentage
 }
 
 export async function getLanguages(): Promise<LanguagesData> {
@@ -124,20 +108,6 @@ export async function getLanguages(): Promise<LanguagesData> {
   return sortedLanguages;
 }
 
-interface TechStackData {
-  languages: string[];
-}
-
-interface GithubStats {
-  stars: number;
-  commits: number;
-  contributedTo: number;
-  followers?: number;
-  following?: number;
-  publicRepos?: number;
-  totalContributions?: number;
-}
-
 export async function getTechStack(): Promise<string[]> {
   const languages = await getLanguages();
   const techStack = await llm.generateTechStack({
@@ -173,41 +143,6 @@ export async function getGithubStats(): Promise<GithubStats> {
       contributions.user.contributionsCollection.contributionCalendar
         .totalContributions,
   };
-}
-
-interface ProjectData {
-  repoName: string;
-  language: string;
-  stars: number;
-  hasReadme: boolean;
-  fileCount: number;
-}
-
-interface ProjectSpotlight {
-  name: string;
-  description: string;
-  stars: number;
-  language: string;
-  url: string;
-}
-
-interface RecentActivity {
-  totalCommits: number;
-  recentCommits: Array<{
-    date: string;
-    count: number;
-  }>;
-  recentRepos: Array<{
-    name: string;
-    pushed_at: string;
-    language: string;
-  }>;
-}
-
-interface WakaTimeData {
-  totalHours: number;
-  topLanguage: string;
-  languages: WakaTimeLanguage[];
 }
 
 export async function getProjectSpotlight(): Promise<ProjectSpotlight> {

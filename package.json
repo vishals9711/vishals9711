@@ -13,13 +13,7 @@
     "lint": "biome lint --write --unsafe",
     "format": "biome format --write"
   },
-  "keywords": [
-    "github",
-    "readme",
-    "automation",
-    "profile",
-    "typescript"
-  ],
+  "keywords": ["github", "readme", "automation", "profile", "typescript"],
   "author": "vishals9711",
   "license": "MIT",
   "dependencies": {
