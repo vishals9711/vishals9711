@@ -1,4 +1,4 @@
-import { WakaTimeStatsData, WakaTimeStatsResponse } from '../types';
+import { WakaTimeStatsData, WakaTimeStatsResponse } from '../types/index.js';
 
 const WAKATIME_BASE_URL = 'https://wakatime.com/api/v1';
 

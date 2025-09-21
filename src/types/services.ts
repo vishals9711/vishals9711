@@ -40,7 +40,7 @@ export interface RecentActivity {
 export interface WakaTimeData {
   totalHours: number;
   topLanguage: string;
-  languages: import('../types/wakatime').WakaTimeLanguage[];
+  languages: import('../types/wakatime.js').WakaTimeLanguage[];
 }
 
 export interface ProfileData {

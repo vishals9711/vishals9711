@@ -5,7 +5,7 @@
   "description": "Automated GitHub profile README generator using Node.js and Google Gemini",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsx src/index.ts",
+    "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "test": "echo \"Run 'pnpm start' with valid API keys to test the application\" && exit 0",
@@ -13,7 +13,13 @@
     "lint": "biome lint --write --unsafe",
     "format": "biome format --write"
   },
-  "keywords": ["github", "readme", "automation", "profile", "typescript"],
+  "keywords": [
+    "github",
+    "readme",
+    "automation",
+    "profile",
+    "typescript"
+  ],
   "author": "vishals9711",
   "license": "MIT",
   "dependencies": {
@@ -28,6 +34,7 @@
     "@biomejs/biome": "2.2.4",
     "@types/ejs": "^3.1.5",
     "@types/node": "^20.19.17",
+    "tsc-alias": "^1.8.16",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   }

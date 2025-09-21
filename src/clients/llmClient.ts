@@ -6,7 +6,7 @@ import {
   ProjectResponse,
   TechStackData,
   TechStackResponse,
-} from '../types';
+} from '../types/index.js';
 
 // Support both old and new environment variable names
 const apiKey = process.env.LLM_API_KEY || process.env.GOOGLE_API_KEY;

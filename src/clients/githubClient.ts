@@ -8,7 +8,7 @@ import {
   GitHubRepoContent,
   GitHubContributionData,
   GitHubPublicEvents,
-} from '../types';
+} from '../types/index.js';
 
 if (!process.env.GH_PAT_TOKEN) {
   throw new Error('GH_PAT_TOKEN environment variable is required');

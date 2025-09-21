@@ -2,8 +2,8 @@ import ejs from 'ejs';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { ProfileData } from '../types';
-import { getConfig } from '../config/config';
+import { ProfileData } from '../types/index.js';
+import { getConfig } from '../config/config.js';
 import {
   generateTechBadge,
   generatePercentageBadge,

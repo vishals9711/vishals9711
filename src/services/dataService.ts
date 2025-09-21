@@ -10,9 +10,9 @@ import {
   ProjectSpotlight,
   RecentActivity,
   WakaTimeData,
-} from '../types';
-import { WakaTimeLanguage } from '../types';
-import { BioData, ProjectData } from '../types';
+} from '../types/index.js';
+import { WakaTimeLanguage } from '../types/index.js';
+import { BioData, ProjectData } from '../types/index.js';
 
 const config = getConfig();
 const GITHUB_USERNAME = config.github.username;

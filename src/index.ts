@@ -1,7 +1,7 @@
 import 'dotenv/config';
-import * as dataService from './services/dataService';
-import * as templateService from './services/templateService';
-import { ProfileData } from './types';
+import * as dataService from './services/dataService.js';
+import * as templateService from './services/templateService.js';
+import { ProfileData } from './types/index.js';
 
 async function main(): Promise<void> {
   try {

@@ -2,7 +2,7 @@
 
 ## 🚀 About Me
 
-Passionate about crafting innovative solutions, I&#39;ve dedicated 24 hours to coding, constantly exploring diverse technologies beyond a single top language to build amazing things!
+A truly passionate developer, I&#39;ve spent 24 hours bringing diverse ideas to life through code, always excited to explore new languages and craft innovative solutions!
 
 
 ## 🛠️ Tech Stack
@@ -15,21 +15,16 @@ Passionate about crafting innovative solutions, I&#39;ve dedicated 24 hours to c
 ![Node.js](https://img.shields.io/badge/Node.js-2d6a2b?style=flat&amp;logo=nodedotjs)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&amp;logo=express)
 ![NestJS](https://img.shields.io/badge/NestJS-007acc?style=flat)
-![npm](https://img.shields.io/badge/npm-007acc?style=flat)
-![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
-![Jest](https://img.shields.io/badge/Jest-c21325?style=flat&amp;logo=jest)
-![ESLint](https://img.shields.io/badge/ESLint-4b32c3?style=flat&amp;logo=eslint)
-![Sass](https://img.shields.io/badge/Sass-a53d6d?style=flat&amp;logo=sass)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-03697c?style=flat&amp;logo=tailwindcss)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-007acc?style=flat)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-03697c?style=flat&amp;logo=tailwindcss)
+![Sass](https://img.shields.io/badge/Sass-a53d6d?style=flat&amp;logo=sass)
+![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-007acc?style=flat)
 ![Pandas](https://img.shields.io/badge/Pandas-007acc?style=flat)
 ![NumPy](https://img.shields.io/badge/NumPy-007acc?style=flat)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-007acc?style=flat)
 ![Scikit-learn](https://img.shields.io/badge/Scikit-learn-007acc?style=flat)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-007acc?style=flat)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-007acc?style=flat)
-![Dapper](https://img.shields.io/badge/Dapper-007acc?style=flat)
-![Entity Framework](https://img.shields.io/badge/Entity%20Framework-007acc?style=flat)
+![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
+![Jest](https://img.shields.io/badge/Jest-c21325?style=flat&amp;logo=jest)
 
 ### 💡 Skills
 - **Programming Languages**: JavaScript, TypeScript, Python, Java
@@ -70,7 +65,7 @@ Passionate about crafting innovative solutions, I&#39;ve dedicated 24 hours to c
 
 ## 🚀 Featured Project
 ### **[vishals9711](https://github.com/vishals9711/vishals9711)**
-Explore `vishals9711`, a thoughtfully architected project built with TypeScript, showcasing a commitment to robust, type-safe development. This initiative establishes a strong, maintainable foundation, designed for scalability and clarity. With its well-defined structure and accompanying README, it serves as a prime example of modern best practices in action, offering valuable insights into building high-quality, efficient applications.
+Dive into `vishals9711`, a meticulously structured repository built on the robust foundation of TypeScript. This project stands out for its strong emphasis on type safety and code maintainability, offering a highly reliable and scalable architecture. It exemplifies best practices in modern development, providing a clear, efficient, and professional blueprint for diverse applications. Discover a codebase where precision meets performance.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-informational?style=flat&logo=typescript)
 ![Stars](https://img.shields.io/badge/Stars-0-yellow?style=flat)
@@ -143,7 +138,7 @@ Explore `vishals9711`, a thoughtfully architected project built with TypeScript,
 
 **Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
 
-*Last updated: Sep 21, 2025, 03:04 AM UTC*
+*Last updated: Sep 21, 2025, 03:15 AM UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 
