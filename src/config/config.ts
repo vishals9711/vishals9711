@@ -25,6 +25,7 @@ export interface Config {
   };
   social: {
     linkedin?: string;
+    github?: string;
     twitter?: string;
     website?: string;
   };
@@ -57,6 +58,7 @@ export const defaultConfig: Config = {
   },
   social: {
     linkedin: 'https://linkedin.com/in/vishals9711',
+    github: 'https://github.com/vishals9711',
     twitter: 'https://x.com/vishals1197',
     website: 'https://www.vishalrsharma.dev/',
   },

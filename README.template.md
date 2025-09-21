@@ -1,8 +1,9 @@
-# 👋 Hi there! I'm @vishals9711
+# 👋 Hi there! I'm @<%= config.github.username %>
 
 <div align="center">
 
 ## 🚀 About Me
+
 <%= header.bio %>
 
 ### 📊 GitHub Statistics
@@ -10,30 +11,46 @@
 </div>
 
 ## 🛠️ Tech Stack
+
+### 🚀 Technologies I Work With
 <% techStack.forEach(t => { %>
-![<%= t %>](https://img.shields.io/badge/<%= t.replace(/ /g, '%20') %>-informational?style=flat&logo=<%= t.toLowerCase().replace(/[^a-z0-9]/g, '') %>) <% }) %>
+<%= generateTechBadge(t) %><% }); %>
+
+### 💡 Skills
+- **Programming Languages**: JavaScript, TypeScript, Python, Java
+- **Web Development**: React, Node.js, Express, HTML/CSS
+- **Databases**: MongoDB, PostgreSQL, Redis
+- **Tools & Platforms**: Git, Docker, AWS, Linux
+- **Methodologies**: Agile, TDD, CI/CD
 
 ## 📈 GitHub Analytics
 
 <div align="center">
 
-| 🌟 **Total Stars** | 💻 **Total Commits** | 📁 **Repositories** | 📊 **Total Contributions** |
-|:------------------:|:-------------------:|:-------------------:|:--------------------------:|
+### 📊 Main Statistics
+
+| 🌟 Stars | 💻 Commits | 📁 Repos | 📊 Contributions |
+|:--------:|:----------:|:--------:|:----------------:|
 | <%= stats.stars %> | <%= stats.commits %> | <%= stats.publicRepos %> | <%= stats.totalContributions %> |
 
-| 👥 **Followers** | 🎯 **Following** | 🤝 **Contributed To** |
-|:---------------:|:----------------:|:-------------------:|
+### 👥 Community
+
+| 👥 Followers | 🎯 Following | 🤝 Contributed To |
+|:------------:|:------------:|:-----------------:|
 | <%= stats.followers %> | <%= stats.following %> | <%= stats.contributedTo %> |
 
 </div>
 
 <% if (wakatimeData) { %>
 ## ⚡ Recent Coding Activity (WakaTime)
+
 ⏰ **<%= wakatimeData.totalHours %> hours** of coding in the last 7 days
 
-**Top Languages:**
-<% wakatimeData.languages.forEach(lang => { %>
-- **<%= lang.name %>**: <%= lang.percent %>% (<%= lang.hours %> hrs)
+### 📊 Language Activity
+| Language | Usage | Hours |
+|:---------|-------:|------:|
+<% wakatimeData.languages.slice(0, 5).forEach(lang => { %>
+| `<%= lang.name %>` | <%= lang.percent %>% | <%= lang.hours %> |
 <% }) %>
 <% } %>
 
@@ -45,34 +62,55 @@
 ![Stars](https://img.shields.io/badge/Stars-<%= spotlight.stars %>-yellow?style=flat)
 
 ## 📝 Recent Activity
+
 <% if (recentActivity.recentRepos && recentActivity.recentRepos.length > 0) { %>
-**Recently Updated Repositories:**
+### 🔄 Recently Updated Repositories
+
 <% recentActivity.recentRepos.forEach(repo => { %>
-- **[<%= repo.name %>](https://github.com/vishals9711/<%= repo.name %>)** - <%= repo.language || 'Multiple Languages' %>
+- **[<%= repo.name %>](https://github.com/<%= config.github.username %>/<%= repo.name %>)** - `<%= repo.language || 'Multiple Languages' %>`
 <% }) %>
+
+### 📊 Recent Contributions
+- **<%= recentActivity.totalCommits %>** total commits across all repositories
+- **<%= recentActivity.recentCommits.length %>** commits in the last 30 days
 <% } %>
 
 ## 💻 Language Breakdown
 
-<div align="center">
+### 📊 Most Used Languages
 
-| Language | Usage |
-|:---------:|------:|
-<% Object.entries(languages).slice(0, 8).forEach(([lang, percentage]) => { %>
-| <%= lang %> | <%= percentage %>% |
+<% const sortedLanguages = Object.entries(languages).slice(0, 8).sort(([,a], [,b]) => parseFloat(b) - parseFloat(a)); %>
+<% sortedLanguages.forEach(([lang, percentage], index) => { %>
+<%= index + 1 %>. **<%= lang %>** - `<%= percentage %>%`
 <% }) %>
 
-</div>
+### 📈 Language Usage Stats
+
+| Language | Percentage | Usage |
+|:---------|-----------:|-------|
+<% sortedLanguages.forEach(([lang, percentage]) => { %>
+| `<%= lang %>` | <%= percentage %>% | Primary language for <%= lang %> projects |
+<% }) %>
 
 ## 🌐 Connect With Me
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/vishals9711)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/vishals9711)
+<% if (config.social.linkedin) { %>
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](<%= config.social.linkedin %>)
+<% } %>
+<% if (config.social.github) { %>
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](<%= config.social.github %>)
+<% } %>
+<% if (config.social.twitter) { %>
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](<%= config.social.twitter %>)
+<% } %>
+<% if (config.social.website) { %>
+[![Website](https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white)](<%= config.social.website %>)
+<% } %>
 
 ---
 
 <div align="center">
 
-**Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
+**Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=<%= config.github.username %>&color=blue)
 
 *Last updated: <%= new Date().toLocaleString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) %> UTC*
 

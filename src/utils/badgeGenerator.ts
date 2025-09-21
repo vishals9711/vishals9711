@@ -23,7 +23,6 @@ export function generateBadge({
     color,
     style,
     ...(logo && { logo }),
-    ...(logoColor && { logoColor }),
   };
 
   const svg = makeBadge(format);
@@ -88,23 +87,11 @@ export function generateTechBadge(techName: string): string {
   };
 
   const color = techColors[techName] || '#007acc';
-  const logo = techName
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, '')
-    .replace('js', 'javascript')
-    .replace('nodejs', 'node.js')
-    .replace('nextjs', 'next.js')
-    .replace('nuxtjs', 'nuxt.js')
-    .replace('tailwindcss', 'tailwind-css')
-    .replace('postgresql', 'postgresql')
-    .replace('mysql', 'mysql')
-    .replace('mongodb', 'mongodb');
 
   return generateBadge({
     label: techName,
     message: '',
     color,
-    logo,
     style: 'flat',
   });
 }
