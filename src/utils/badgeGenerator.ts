@@ -17,83 +17,88 @@ export function generateBadge({
   logo,
   logoColor = 'white',
 }: BadgeOptions): string {
-  const format: Format = {
-    label,
-    message,
-    color,
-    style,
-    ...(logo && { logo }),
-  };
+  const encodedLabel = encodeURIComponent(label);
+  const encodedMessage = encodeURIComponent(message);
+  const encodedColor = encodeURIComponent(color.replace('#', ''));
 
-  const svg = makeBadge(format);
-  // Convert SVG to base64 for use in markdown
-  const base64 = Buffer.from(svg).toString('base64');
-  return `![${label} ${message}](data:image/svg+xml;base64,${base64})`;
+  let badgeUrl = `https://img.shields.io/badge/${encodedLabel}-${encodedMessage}-${encodedColor}?style=${style}`;
+
+  if (logo) {
+    badgeUrl += `&logo=${encodeURIComponent(logo)}`;
+    if (logoColor) {
+      badgeUrl += `&logoColor=${encodeURIComponent(logoColor)}`;
+    }
+  }
+
+  return `![${label}](` + badgeUrl + ')';
 }
 
 export function generateTechBadge(techName: string): string {
-  // Common technology colors
-  const techColors: Record<string, string> = {
-    JavaScript: '#f7df1e',
-    TypeScript: '#3178c6',
-    Python: '#3776ab',
-    Java: '#007396',
-    'C++': '#00599c',
-    'C#': '#239120',
-    PHP: '#777bb4',
-    Ruby: '#701516',
-    Go: '#00add8',
-    Rust: '#dea584',
-    Swift: '#ffac45',
-    Kotlin: '#f18e33',
-    React: '#61dafb',
-    Vue: '#4fc08d',
-    Angular: '#dd0031',
-    'Node.js': '#339933',
-    'Express.js': '#000000',
-    Django: '#092e20',
-    Flask: '#000000',
-    Spring: '#6db33f',
-    Docker: '#2496ed',
-    Kubernetes: '#326ce5',
-    AWS: '#ff9900',
-    MongoDB: '#47a248',
-    PostgreSQL: '#336791',
-    MySQL: '#4479a1',
-    Redis: '#dc382d',
-    Git: '#f05032',
-    Linux: '#fcc624',
-    Windows: '#0078d6',
-    macOS: '#000000',
-    HTML: '#e34f26',
-    CSS: '#1572b6',
-    SCSS: '#c6538c',
-    Sass: '#cc6699',
-    'Tailwind CSS': '#06b6d4',
-    'Next.js': '#000000',
-    'Nuxt.js': '#00c58e',
-    Svelte: '#ff3e00',
-    GraphQL: '#e10098',
-    'REST APIs': '#009639',
-    Jest: '#c21325',
-    Mocha: '#8d6748',
-    Webpack: '#8dd6f9',
-    Vite: '#646cff',
-    ESLint: '#4b32c3',
-    Prettier: '#f7b93e',
-    NPM: '#cb3837',
-    Yarn: '#2c8ebb',
-    PNPM: '#f69220',
+  // Technology colors and Simple Icons slugs with high contrast
+  const techInfo: Record<string, { color: string; logo?: string }> = {
+    JavaScript: { color: '#f7df1e', logo: 'javascript' },
+    TypeScript: { color: '#007acc', logo: 'typescript' }, // Darker blue for better contrast
+    Python: { color: '#3776ab', logo: 'python' },
+    Java: { color: '#007396', logo: 'java' },
+    'C++': { color: '#00599c', logo: 'cplusplus' },
+    'C#': { color: '#239120', logo: 'csharp' },
+    PHP: { color: '#777bb4', logo: 'php' },
+    Ruby: { color: '#701516', logo: 'ruby' },
+    Go: { color: '#00add8', logo: 'go' },
+    Rust: { color: '#dea584', logo: 'rust' },
+    Swift: { color: '#ffac45', logo: 'swift' },
+    Kotlin: { color: '#7f52ff', logo: 'kotlin' }, // Purple for better contrast
+    React: { color: '#61dafb', logo: 'react' },
+    Vue: { color: '#4fc08d', logo: 'vue.js' },
+    Angular: { color: '#dd0031', logo: 'angular' },
+    'Node.js': { color: '#68a063', logo: 'nodedotjs' }, // Darker green
+    'Express.js': { color: '#000000', logo: 'express' },
+    Django: { color: '#092e20', logo: 'django' },
+    Flask: { color: '#000000', logo: 'flask' },
+    Spring: { color: '#6db33f', logo: 'spring' },
+    Docker: { color: '#2496ed', logo: 'docker' },
+    Kubernetes: { color: '#326ce5', logo: 'kubernetes' },
+    AWS: { color: '#ff9900', logo: 'amazonaws' },
+    MongoDB: { color: '#47a248', logo: 'mongodb' },
+    PostgreSQL: { color: '#336791', logo: 'postgresql' },
+    MySQL: { color: '#4479a1', logo: 'mysql' },
+    Redis: { color: '#dc382d', logo: 'redis' },
+    Git: { color: '#f05032', logo: 'git' },
+    Linux: { color: '#fcc624', logo: 'linux' },
+    Windows: { color: '#0078d6', logo: 'windows' },
+    macOS: { color: '#000000', logo: 'apple' },
+    HTML: { color: '#e34f26', logo: 'html5' },
+    CSS: { color: '#1572b6', logo: 'css3' },
+    SCSS: { color: '#c6538c', logo: 'sass' },
+    Sass: { color: '#cc6699', logo: 'sass' },
+    'Tailwind CSS': { color: '#06b6d4', logo: 'tailwindcss' },
+    'Next.js': { color: '#000000', logo: 'nextdotjs' },
+    'Nuxt.js': { color: '#00c58e', logo: 'nuxtdotjs' },
+    Svelte: { color: '#ff3e00', logo: 'svelte' },
+    GraphQL: { color: '#e10098', logo: 'graphql' },
+    'REST APIs': { color: '#009639', logo: 'openapi' },
+    Jest: { color: '#c21325', logo: 'jest' },
+    Mocha: { color: '#8d6748', logo: 'mocha' },
+    Webpack: { color: '#8dd6f9', logo: 'webpack' },
+    Vite: { color: '#646cff', logo: 'vite' },
+    ESLint: { color: '#4b32c3', logo: 'eslint' },
+    Prettier: { color: '#1a1a1a', logo: 'prettier' }, // Dark gray for better contrast
+    NPM: { color: '#cb3837', logo: 'npm' },
+    Yarn: { color: '#2c8ebb', logo: 'yarn' },
+    PNPM: { color: '#f69220', logo: 'pnpm' },
   };
 
-  const color = techColors[techName] || '#007acc';
+  const info = techInfo[techName] || { color: '#007acc' };
+  const encodedTechName = encodeURIComponent(techName);
+  const encodedColor = encodeURIComponent(info.color.replace('#', ''));
 
-  return generateBadge({
-    label: techName,
-    message: '',
-    color,
-    style: 'flat',
-  });
+  let badgeUrl = `https://img.shields.io/badge/${encodedTechName}-${encodedColor}?style=flat`;
+
+  if (info.logo) {
+    badgeUrl += `&logo=${info.logo}`;
+  }
+
+  return `![${techName}](` + badgeUrl + ')';
 }
 
 export function generateCountBadge(
@@ -101,22 +106,18 @@ export function generateCountBadge(
   count: number,
   color = '#007acc'
 ): string {
-  return generateBadge({
-    label,
-    message: count.toString(),
-    color,
-    style: 'for-the-badge',
-  });
+  const encodedLabel = encodeURIComponent(label);
+  const encodedCount = encodeURIComponent(count.toString());
+
+  return `![${label}](https://img.shields.io/badge/${encodedLabel}-${encodedCount}-${color}?style=for-the-badge)`;
 }
 
 export function generatePercentageBadge(
   language: string,
   percentage: string
 ): string {
-  return generateBadge({
-    label: language,
-    message: `${percentage}%`,
-    color: '#007acc',
-    style: 'flat-square',
-  });
+  const encodedLanguage = encodeURIComponent(language);
+  const encodedPercentage = encodeURIComponent(`${percentage}%`);
+
+  return `![${language}](https://img.shields.io/badge/${encodedLanguage}-${encodedPercentage}-007acc?style=flat-square)`;
 }

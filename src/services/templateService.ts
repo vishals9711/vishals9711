@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { ProfileData } from '../types';
 import { getConfig } from '../config/config';
-import { generateTechBadge } from '../utils/badgeGenerator.js';
+import { generateTechBadge, generatePercentageBadge } from '../utils/badgeGenerator.js';
 
 interface TemplateData extends ProfileData {
   config: {
@@ -19,10 +19,9 @@ interface TemplateData extends ProfileData {
     };
   };
   generateTechBadge: (techName: string) => string;
+  generatePercentageBadge: (language: string, percentage: string) => string;
 }
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const config = getConfig();
 
 const TEMPLATE_PATH = path.resolve(config.output.templatePath);
@@ -39,6 +38,7 @@ export function generateReadme(data: ProfileData): void {
       social: config.social,
     },
     generateTechBadge,
+    generatePercentageBadge,
   };
   const rendered = ejs.render(template, templateData);
   fs.writeFileSync(OUTPUT_PATH, rendered);

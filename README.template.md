@@ -80,8 +80,8 @@
 ### 📊 Most Used Languages
 
 <% const sortedLanguages = Object.entries(languages).slice(0, 8).sort(([,a], [,b]) => parseFloat(b) - parseFloat(a)); %>
-<% sortedLanguages.forEach(([lang, percentage], index) => { %>
-<%= index + 1 %>. **<%= lang %>** - `<%= percentage %>%`
+<% sortedLanguages.forEach(([lang, percentage]) => { %>
+<%= generateTechBadge(lang) %> <%= generatePercentageBadge(lang, percentage) %>
 <% }) %>
 
 ### 📈 Language Usage Stats
@@ -93,18 +93,8 @@
 <% }) %>
 
 ## 🌐 Connect With Me
-<% if (config.social.linkedin) { %>
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](<%= config.social.linkedin %>)
-<% } %>
-<% if (config.social.github) { %>
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](<%= config.social.github %>)
-<% } %>
-<% if (config.social.twitter) { %>
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](<%= config.social.twitter %>)
-<% } %>
-<% if (config.social.website) { %>
-[![Website](https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white)](<%= config.social.website %>)
-<% } %>
+
+<% if (config.social.linkedin) { %>[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](<%= config.social.linkedin %>)<% } %><% if (config.social.github) { %> [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](<%= config.social.github %>)<% } %><% if (config.social.twitter) { %> [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](<%= config.social.twitter %>)<% } %><% if (config.social.website) { %> [![Website](https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white)](<%= config.social.website %>)<% } %>
 
 ---
 
