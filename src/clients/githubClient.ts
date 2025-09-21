@@ -15,11 +15,17 @@ const graphqlWithAuth = graphql.defaults({
   },
 });
 
-export async function getUserData(username) {
+// Using any types for GitHub API responses due to complex and variable structures
+// interface UserData { data: any }
+// interface RepoData { data: any[] }
+// interface SearchData { data: { total_count: number } }
+// interface ContributionData { user: any }
+
+export async function getUserData(username: string): Promise<any> {
   return octokit.users.getByUsername({ username });
 }
 
-export async function listUserRepos(username) {
+export async function listUserRepos(username: string): Promise<any> {
   return octokit.repos.listForUser({
     username,
     sort: 'pushed',
@@ -27,7 +33,7 @@ export async function listUserRepos(username) {
   });
 }
 
-export async function listAllUserRepos(username) {
+export async function listAllUserRepos(username: string): Promise<any[]> {
   return octokit.paginate(octokit.repos.listForUser, {
     username,
     type: 'owner',
@@ -36,21 +42,21 @@ export async function listAllUserRepos(username) {
   });
 }
 
-export async function getSearchData(query) {
+export async function getSearchData(query: string): Promise<any> {
   return octokit.search.issuesAndPullRequests({
     q: query,
   });
 }
 
-export async function getRepoLanguages(owner, repo) {
+export async function getRepoLanguages(owner: string, repo: string): Promise<any> {
   return octokit.repos.listLanguages({ owner, repo });
 }
 
-export async function getRepoContent(owner, repo) {
+export async function getRepoContent(owner: string, repo: string): Promise<any> {
   return octokit.repos.getContent({ owner, repo, path: '' });
 }
 
-export async function getContributionData(username) {
+export async function getContributionData(username: string): Promise<any> {
   const query = `
     query($username: String!) {
       user(login: $username) {
@@ -73,7 +79,7 @@ export async function getContributionData(username) {
   return graphqlWithAuth(query, { username });
 }
 
-export async function listPublicEvents(username) {
+export async function listPublicEvents(username: string): Promise<any> {
   return octokit.activity.listPublicEventsForUser({
     username,
     per_page: 100,

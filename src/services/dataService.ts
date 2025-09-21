@@ -1,8 +1,10 @@
 import * as github from '../clients/githubClient.js';
 import * as wakatime from '../clients/wakatimeClient.js';
 import * as llm from '../clients/llmClient.js';
+import { getConfig } from '../config/config.js';
 
-const GITHUB_USERNAME = 'vishals9711';
+const config = getConfig();
+const GITHUB_USERNAME = config.github.username;
 
 interface BioData {
   topLanguage: string;
@@ -18,27 +20,30 @@ interface HeaderData {
 export async function getHeaderAndBio(): Promise<HeaderData> {
   const userReposPromise = github.listUserRepos(GITHUB_USERNAME);
 
-  let wakatimeStatsPromise: Promise<any> | null = null;
-  let wakatimeStats = null;
   let topLanguage = 'JavaScript'; // Default fallback
   let totalHours = 0;
+  let latestRepo = 'profile-dynamo'; // Default fallback
 
-  // Check if WakaTime API key is available
-  if (process.env.WAKATIME_API_KEY) {
+  // Get WakaTime data if available
+  if (config.wakatime.enabled && config.wakatime.apiKey) {
     try {
-      wakatimeStatsPromise = wakatime.getStats('last_7_days');
-      wakatimeStats = await wakatimeStatsPromise;
-      topLanguage = wakatimeStats.data.data.languages[0]?.name || topLanguage;
-      totalHours = Math.round(wakatimeStats.data.data.total_seconds / 3600);
+      const wakatimeStats = await wakatime.getStats('last_7_days');
+      topLanguage = wakatimeStats.data.languages[0]?.name || topLanguage;
+      totalHours = Math.round(wakatimeStats.data.total_seconds / 3600);
     } catch (error) {
-      console.warn('WakaTime API unavailable, using default values:', error.message);
+      console.warn('WakaTime API unavailable, using default values:', error);
     }
   } else {
-    console.log('WakaTime API key not provided, using default values');
+    console.log('WakaTime not configured, using default values');
   }
 
-  const userRepos = await userReposPromise;
-  const latestRepo = userRepos.data[0]?.name || 'profile-dynamo';
+  // Get latest repository
+  try {
+    const userRepos = await userReposPromise;
+    latestRepo = userRepos.data[0]?.name || latestRepo;
+  } catch (error) {
+    console.warn('Could not fetch user repos:', error);
+  }
 
   const bioData = await llm.generateBio({
     topLanguage,
@@ -101,6 +106,10 @@ interface GithubStats {
   prs: number;
   issues: number;
   contributedTo: number;
+  followers?: number;
+  following?: number;
+  publicRepos?: number;
+  totalContributions?: number;
 }
 
 export async function getTechStack(): Promise<string[]> {
@@ -112,7 +121,8 @@ export async function getTechStack(): Promise<string[]> {
 }
 
 export async function getGithubStats(): Promise<GithubStats> {
-  const [userRepos, issues, pullRequests, contributions] = await Promise.all([
+  const [userData, userRepos, issues, pullRequests, contributions] = await Promise.all([
+    github.getUserData(GITHUB_USERNAME),
     github.listAllUserRepos(GITHUB_USERNAME),
     github.getSearchData(`is:issue author:${GITHUB_USERNAME}`),
     github.getSearchData(`is:pr author:${GITHUB_USERNAME}`),
@@ -127,6 +137,10 @@ export async function getGithubStats(): Promise<GithubStats> {
     prs: pullRequests.data.total_count,
     commits: contributions.user.contributionsCollection.totalCommitContributions,
     contributedTo: contributions.user.contributionsCollection.totalRepositoriesWithContributedCommits,
+    followers: userData.data.followers,
+    following: userData.data.following,
+    publicRepos: userData.data.public_repos,
+    totalContributions: contributions.user.contributionsCollection.contributionCalendar.totalContributions,
   };
 }
 
@@ -144,6 +158,29 @@ interface ProjectSpotlight {
   stars: number;
   language: string;
   url: string;
+}
+
+interface RecentActivity {
+  totalCommits: number;
+  recentCommits: Array<{
+    date: string;
+    count: number;
+  }>;
+  recentRepos: Array<{
+    name: string;
+    pushed_at: string;
+    language: string;
+  }>;
+}
+
+interface WakaTimeData {
+  totalHours: number;
+  topLanguage: string;
+  languages: Array<{
+    name: string;
+    percent: number;
+    hours: number;
+  }>;
 }
 
 export async function getProjectSpotlight(): Promise<ProjectSpotlight> {
@@ -164,7 +201,7 @@ export async function getProjectSpotlight(): Promise<ProjectSpotlight> {
       repoName: repo.name,
       language: repo.language,
       stars: repo.stargazers_count,
-      hasReadme: repoDetails.data.some(file => file.name.toLowerCase().includes('readme')),
+      hasReadme: repoDetails.data.some((file: any) => file.name.toLowerCase().includes('readme')),
       fileCount: repoDetails.data.length
     } as ProjectData);
     description = enhancedDescription.description;
@@ -177,4 +214,57 @@ export async function getProjectSpotlight(): Promise<ProjectSpotlight> {
     language: repo.language || 'JavaScript',
     url: repo.html_url
   };
+}
+
+export async function getRecentActivity(): Promise<RecentActivity> {
+  const contributions = await github.getContributionData(GITHUB_USERNAME);
+
+  const recentCommits = contributions.user.contributionsCollection.contributionCalendar.weeks
+    .slice(-12) // Last 12 weeks
+    .flatMap((week: any) => week.contributionDays)
+    .filter((day: any) => day.contributionCount > 0)
+    .slice(-30) // Last 30 contributions
+    .map((day: any) => ({
+      date: day.date,
+      count: day.contributionCount
+    }));
+
+  const recentRepos = await github.listUserRepos(GITHUB_USERNAME);
+  const sortedRepos = recentRepos.data
+    .filter((repo: any) => repo.pushed_at) // Only include repos with pushed_at
+    .sort((a: any, b: any) => new Date(b.pushed_at || '').getTime() - new Date(a.pushed_at || '').getTime())
+    .slice(0, 5);
+
+  return {
+    totalCommits: contributions.user.contributionsCollection.totalCommitContributions,
+    recentCommits,
+    recentRepos: sortedRepos.map((repo: any) => ({
+      name: repo.name,
+      pushed_at: repo.pushed_at || '',
+      language: repo.language || 'Multiple Languages'
+    }))
+  };
+}
+
+export async function getWakaTimeData(): Promise<WakaTimeData | null> {
+  if (!config.wakatime.enabled || !config.wakatime.apiKey) {
+    return null;
+  }
+
+  try {
+    const stats = await wakatime.getStats('last_7_days');
+
+    return {
+      totalHours: Math.round(stats.data.total_seconds / 3600),
+      topLanguage: stats.data.languages[0]?.name || 'JavaScript',
+      languages: stats.data.languages.slice(0, 6).map((lang: any) => ({
+        name: lang.name,
+        percent: Math.round(lang.percent),
+        hours: Math.round(lang.total_seconds / 3600)
+      }))
+    };
+  } catch (error) {
+    console.warn('Failed to fetch WakaTime data:', error);
+    return null;
+  }
 }
