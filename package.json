@@ -5,7 +5,7 @@
   "description": "Automated GitHub profile README generator using Node.js and Google Gemini",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "tsx src/index.ts",
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "test": "echo \"Run 'pnpm start' with valid API keys to test the application\" && exit 0",
