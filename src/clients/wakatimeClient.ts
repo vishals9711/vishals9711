@@ -1,7 +1,7 @@
 const WAKATIME_BASE_URL = 'https://wakatime.com/api/v1';
 
 interface WakaTimeLanguage {
-  name: string | null;
+  name: string;
   total_seconds: number;
   percent: number;
   digital: string;
@@ -60,6 +60,6 @@ export async function getStats(range: string): Promise<WakaTimeStatsData> {
     );
   }
 
-  const result: WakaTimeStatsResponse = await response.json();
+  const result = (await response.json()) as WakaTimeStatsResponse;
   return result.data;
 }

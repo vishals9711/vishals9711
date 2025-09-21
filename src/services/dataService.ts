@@ -4,7 +4,7 @@ import * as llm from '../clients/llmClient.js';
 import { getConfig } from '../config/config.js';
 
 interface WakaTimeLanguage {
-  name: string | null;
+  name: string;
   total_seconds: number;
   percent: number;
   digital: string;
@@ -96,10 +96,10 @@ export async function getLanguages(): Promise<LanguagesData> {
           languageStats[lang] = bytes as number;
         }
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.warn(
         `Could not fetch languages for ${repo.name}:`,
-        error.message
+        error instanceof Error ? error.message : String(error)
       );
     }
   }
@@ -155,7 +155,7 @@ export async function getGithubStats(): Promise<GithubStats> {
   ]);
 
   const totalStars = userRepos.reduce(
-    (acc, repo) => acc + repo.stargazers_count,
+    (acc, repo) => acc + (repo.stargazers_count ?? 0),
     0
   );
 
@@ -227,8 +227,8 @@ export async function getProjectSpotlight(): Promise<ProjectSpotlight> {
     const enhancedDescription = await llm.generateProjectDescription({
       repoName: repo.name,
       language: repo.language,
-      stars: repo.stargazers_count,
-      hasReadme: repoDetails.data.some((file: any) =>
+      stars: repo.stargazers_count ?? 0,
+      hasReadme: repoDetails.data.some((file) =>
         file.name.toLowerCase().includes('readme')
       ),
       fileCount: repoDetails.data.length,
@@ -241,7 +241,7 @@ export async function getProjectSpotlight(): Promise<ProjectSpotlight> {
     description:
       description ||
       'An amazing project showcasing modern development practices.',
-    stars: repo.stargazers_count,
+    stars: repo.stargazers_count ?? 0,
     language: repo.language || 'JavaScript',
     url: repo.html_url,
   };
@@ -253,19 +253,19 @@ export async function getRecentActivity(): Promise<RecentActivity> {
   const recentCommits =
     contributions.user.contributionsCollection.contributionCalendar.weeks
       .slice(-12) // Last 12 weeks
-      .flatMap((week: any) => week.contributionDays)
-      .filter((day: any) => day.contributionCount > 0)
+      .flatMap((week) => week.contributionDays)
+      .filter((day) => day.contributionCount > 0)
       .slice(-30) // Last 30 contributions
-      .map((day: any) => ({
+      .map((day) => ({
         date: day.date,
         count: day.contributionCount,
       }));
 
   const recentRepos = await github.listUserRepos(GITHUB_USERNAME);
   const sortedRepos = recentRepos.data
-    .filter((repo: any) => repo.pushed_at) // Only include repos with pushed_at
+    .filter((repo) => repo.pushed_at) // Only include repos with pushed_at
     .sort(
-      (a: any, b: any) =>
+      (a, b) =>
         new Date(b.pushed_at || '').getTime() -
         new Date(a.pushed_at || '').getTime()
     )
@@ -275,7 +275,7 @@ export async function getRecentActivity(): Promise<RecentActivity> {
     totalCommits:
       contributions.user.contributionsCollection.totalCommitContributions,
     recentCommits,
-    recentRepos: sortedRepos.map((repo: any) => ({
+    recentRepos: sortedRepos.map((repo) => ({
       name: repo.name,
       pushed_at: repo.pushed_at || '',
       language: repo.language || 'Multiple Languages',
