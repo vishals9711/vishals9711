@@ -2,7 +2,7 @@
 
 ## 🚀 About Me
 
-Driven by a passion for creating, I&#39;ve logged 24 hours of coding, constantly pushing boundaries and exploring new horizons beyond my &#39;Other&#39; language focus to build impactful and exciting software!
+Passionate about exploring diverse coding realms, I&#39;ve dedicated 28 hours to crafting innovative solutions, with &#39;Other&#39; being my current top language of discovery!
 
 
 ## 🛠️ Tech Stack
@@ -10,18 +10,20 @@ Driven by a passion for creating, I&#39;ve logged 24 hours of coding, constantly
 ### 🚀 Technologies I Work With
 
 ![Node.js](https://img.shields.io/badge/Node.js-2d6a2b?style=flat&amp;logo=nodedotjs)
-![React.js](https://img.shields.io/badge/React.js-007acc?style=flat)
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&amp;logo=express)
+![React](https://img.shields.io/badge/React-20232a?style=flat&amp;logo=react)
 ![Angular](https://img.shields.io/badge/Angular-c3002b?style=flat&amp;logo=angular)
 ![NestJS](https://img.shields.io/badge/NestJS-007acc?style=flat)
-![TypeORM](https://img.shields.io/badge/TypeORM-007acc?style=flat)
-![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-007acc?style=flat)
-![Sass](https://img.shields.io/badge/Sass-a53d6d?style=flat&amp;logo=sass)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&amp;logo=nextdotjs)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&amp;logo=express)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-007acc?style=flat)
+![Azure SQL Database](https://img.shields.io/badge/Azure%20SQL%20Database-007acc?style=flat)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-007acc?style=flat)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-03697c?style=flat&amp;logo=tailwindcss)
+![Pandas](https://img.shields.io/badge/Pandas-007acc?style=flat)
+![NumPy](https://img.shields.io/badge/NumPy-007acc?style=flat)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-007acc?style=flat)
 ![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
-![Jest](https://img.shields.io/badge/Jest-c21325?style=flat&amp;logo=jest)
-![Dapper](https://img.shields.io/badge/Dapper-007acc?style=flat)
+![Git](https://img.shields.io/badge/Git-c43a20?style=flat&amp;logo=git)
 
 ### 💡 Skills
 - **Programming Languages**: JavaScript, TypeScript, Python, Java
@@ -36,33 +38,33 @@ Driven by a passion for creating, I&#39;ve logged 24 hours of coding, constantly
 
 | 🌟 Stars | 💻 Commits | 📁 Repos | 📊 Contributions |
 |:--------:|:----------:|:--------:|:----------------:|
-| 4 | 64 | 47 | 1323 |
+| 4 | 64 | 47 | 1336 |
 
 ### 👥 Community
 
 | 👥 Followers | 🎯 Following | 🤝 Contributed To |
 |:------------:|:------------:|:-----------------:|
-| 5 | 13 | 4 |
+| 6 | 13 | 4 |
 
 
 ## ⚡ Recent Coding Activity (WakaTime)
 
-⏰ **24 hours** of coding in the last 7 days
+⏰ **28 hours** of coding in the last 7 days
 
 ### 📊 Language Activity
 | Language | Usage | Hours |
 |:---------|-------:|------:|
-| `Other` | 25% | 8 |
-| `TypeScript` | 21% | 7 |
-| `Markdown` | 20% | 6 |
-| `JavaScript` | 14% | 4 |
-| `Swift` | 10% | 3 |
+| `Other` | 23% | 8 |
+| `TypeScript` | 22% | 8 |
+| `Markdown` | 21% | 8 |
+| `JavaScript` | 13% | 5 |
+| `Swift` | 9% | 3 |
 
 
 
 ## 🚀 Featured Project
 ### **[vishals9711](https://github.com/vishals9711/vishals9711)**
-This project, `vishals9711`, harnesses the robust power of TypeScript to deliver a highly maintainable and scalable solution. Engineered for clarity and type safety, it establishes a solid foundation for developing sophisticated applications, ensuring enhanced code quality and significantly reducing development friction. Its well-structured codebase, complemented by a comprehensive README, underscores a professional commitment to best practices, making it an excellent blueprint for reliable and efficient software initiatives.
+Dive into a meticulously crafted TypeScript project, engineered to deliver robust and highly maintainable solutions for modern development. This repository leverages TypeScript&#39;s powerful type system to ensure exceptional code quality, enhance developer productivity, and facilitate a scalable architecture. It stands out by demonstrating best practices in code organization and component design, offering a clear and efficient foundation for building reliable applications.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-informational?style=flat&logo=typescript)
 ![Stars](https://img.shields.io/badge/Stars-0-yellow?style=flat)
@@ -135,7 +137,7 @@ This project, `vishals9711`, harnesses the robust power of TypeScript to deliver
 
 **Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
 
-*Last updated: Sep 21, 2025, 05:22 AM UTC*
+*Last updated: Sep 28, 2025, 05:21 AM UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 
