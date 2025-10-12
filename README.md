@@ -1,9 +1,15 @@
+
+
 # 👋 Hi there! I'm @vishals9711
 
 ## 🚀 About Me
 
-A passionate Swift developer who has dedicated 23 hours to crafting innovative solutions and constantly exploring new horizons in code!
+Hello, world! I&#39;m vishals9711, a passionate Swift enthusiast who&#39;s already dedicated 27+ hours to bringing ideas to life through code.
 
+## 🏆 GitHub Trophies
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=vishals9711&theme=radical&rank=S,A,B,C" alt="GitHub Trophies"/>
+</div>
 
 ## 🛠️ Tech Stack
 
@@ -13,16 +19,14 @@ A passionate Swift developer who has dedicated 23 hours to crafting innovative s
 ![Angular](https://img.shields.io/badge/Angular-c3002b?style=flat&amp;logo=angular)
 ![Node.js](https://img.shields.io/badge/Node.js-2d6a2b?style=flat&amp;logo=nodedotjs)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&amp;logo=express)
-![NestJS](https://img.shields.io/badge/NestJS-007acc?style=flat)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-007acc?style=flat)
-![Sequelize](https://img.shields.io/badge/Sequelize-007acc?style=flat)
-![TypeORM](https://img.shields.io/badge/TypeORM-007acc?style=flat)
-![Pandas](https://img.shields.io/badge/Pandas-007acc?style=flat)
-![NumPy](https://img.shields.io/badge/NumPy-007acc?style=flat)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-007acc?style=flat)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&amp;logo=nextdotjs)
+![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-007acc?style=flat)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-03697c?style=flat&amp;logo=tailwindcss)
-![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
+![Sass](https://img.shields.io/badge/Sass-a53d6d?style=flat&amp;logo=sass)
+![Pandas](https://img.shields.io/badge/Pandas-007acc?style=flat)
+![NumPy](https://img.shields.io/badge/NumPy-007acc?style=flat)
+![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-007acc?style=flat)
 
 ### 💡 Skills
 - **Programming Languages**: JavaScript, TypeScript, Python, Java
@@ -48,22 +52,22 @@ A passionate Swift developer who has dedicated 23 hours to crafting innovative s
 
 ## ⚡ Recent Coding Activity (WakaTime)
 
-⏰ **23 hours** of coding in the last 7 days
+⏰ **27 hours** of coding in the last 7 days
 
 ### 📊 Language Activity
 | Language | Usage | Hours |
 |:---------|-------:|------:|
-| `Swift` | 48% | 15 |
-| `Other` | 29% | 9 |
-| `Python` | 9% | 3 |
+| `Swift` | 48% | 17 |
+| `Other` | 26% | 10 |
+| `Python` | 8% | 3 |
+| `Markdown` | 6% | 2 |
 | `Jupyter Notebook` | 5% | 2 |
-| `Objective-C` | 2% | 1 |
 
 
 
 ## 🚀 Featured Project
 ### **[vishals9711](https://github.com/vishals9711/vishals9711)**
-Discover `vishals9711`, a meticulously structured TypeScript project that exemplifies modern, type-safe software development. This repository leverages the power of TypeScript to deliver a robust and maintainable codebase, promoting clarity and significantly reducing runtime errors. It provides a strong foundation for building scalable applications, distinguished by its commitment to code quality and developer efficiency.
+Designed with a focus on precision and maintainability, this TypeScript-powered project offers a robust, type-safe foundation for specialized applications. Its concise, well-documented architecture, highlighted by a comprehensive README, ensures clarity and simplifies integration, making it an ideal core component or a streamlined utility solution.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-informational?style=flat&logo=typescript)
 ![Stars](https://img.shields.io/badge/Stars-0-yellow?style=flat)
@@ -92,28 +96,6 @@ Discover `vishals9711`, a meticulously structured TypeScript project that exempl
 
 ## 💻 Language Breakdown
 
-### 📊 Most Used Languages
-
-
-
-![JavaScript](https://img.shields.io/badge/JavaScript-000000?style=flat&amp;logo=javascript) ![JavaScript](https://img.shields.io/badge/JavaScript-42.93%25-007acc?style=flat-square)
-
-![TypeScript](https://img.shields.io/badge/TypeScript-005a9c?style=flat&amp;logo=typescript) ![TypeScript](https://img.shields.io/badge/TypeScript-33.85%25-007acc?style=flat-square)
-
-![SCSS](https://img.shields.io/badge/SCSS-a53d6d?style=flat&amp;logo=sass) ![SCSS](https://img.shields.io/badge/SCSS-9.03%25-007acc?style=flat-square)
-
-![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-007acc?style=flat) ![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-3.35%25-007acc?style=flat-square)
-
-![HTML](https://img.shields.io/badge/HTML-ca421c?style=flat&amp;logo=html5) ![HTML](https://img.shields.io/badge/HTML-2.89%25-007acc?style=flat-square)
-
-![Handlebars](https://img.shields.io/badge/Handlebars-007acc?style=flat) ![Handlebars](https://img.shields.io/badge/Handlebars-2.86%25-007acc?style=flat-square)
-
-![CSS](https://img.shields.io/badge/CSS-105a96?style=flat&amp;logo=css3) ![CSS](https://img.shields.io/badge/CSS-2.33%25-007acc?style=flat-square)
-
-![TSQL](https://img.shields.io/badge/TSQL-007acc?style=flat) ![TSQL](https://img.shields.io/badge/TSQL-1.31%25-007acc?style=flat-square)
-
-
-### 📈 Language Usage Stats
 
 | Language | Percentage | Usage |
 |:---------|-----------:|-------|
@@ -136,7 +118,7 @@ Discover `vishals9711`, a meticulously structured TypeScript project that exempl
 
 **Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
 
-*Last updated: Oct 12, 2025, 05:21 AM UTC*
+*Last updated: Oct 12, 2025, 07:56 PM UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 
