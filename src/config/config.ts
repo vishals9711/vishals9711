@@ -3,6 +3,9 @@ export interface Config {
     username: string;
     personalAccessToken?: string;
   };
+  header: {
+    image?: string;
+  };
   wakatime: {
     apiKey?: string;
     enabled: boolean;
@@ -27,7 +30,10 @@ export interface Config {
     linkedin?: string;
     github?: string;
     twitter?: string;
+    instagram?: string;
+    stackoverflow?: string;
     website?: string;
+    blog?: string;
   };
 }
 
@@ -35,6 +41,9 @@ export const defaultConfig: Config = {
   github: {
     username: 'vishals9711',
     personalAccessToken: process.env.GH_PAT_TOKEN,
+  },
+  header: {
+    image: '',
   },
   wakatime: {
     apiKey: process.env.WAKATIME_API_KEY,
@@ -60,7 +69,10 @@ export const defaultConfig: Config = {
     linkedin: 'https://linkedin.com/in/vishals9711',
     github: 'https://github.com/vishals9711',
     twitter: 'https://x.com/vishals1197',
+    instagram: '',
+    stackoverflow: '',
     website: 'https://www.vishalrsharma.dev/',
+    blog: '',
   },
 };
 
@@ -71,6 +83,10 @@ export function getConfig(): Config {
       ...defaultConfig.github,
       personalAccessToken:
         process.env.GH_PAT_TOKEN || defaultConfig.github.personalAccessToken,
+    },
+    header: {
+      ...defaultConfig.header,
+      image: process.env.HEADER_IMAGE_URL || defaultConfig.header.image,
     },
     wakatime: {
       ...defaultConfig.wakatime,
@@ -83,6 +99,17 @@ export function getConfig(): Config {
         process.env.LLM_API_KEY ||
         process.env.GOOGLE_API_KEY ||
         defaultConfig.llm.apiKey,
+    },
+    social: {
+      ...defaultConfig.social,
+      linkedin: process.env.LINKEDIN_URL || defaultConfig.social.linkedin,
+      github: process.env.GITHUB_URL || defaultConfig.social.github,
+      twitter: process.env.TWITTER_URL || defaultConfig.social.twitter,
+      instagram: process.env.INSTAGRAM_URL || defaultConfig.social.instagram,
+      stackoverflow:
+        process.env.STACKOVERFLOW_URL || defaultConfig.social.stackoverflow,
+      website: process.env.WEBSITE_URL || defaultConfig.social.website,
+      blog: process.env.BLOG_URL || defaultConfig.social.blog,
     },
   };
 }

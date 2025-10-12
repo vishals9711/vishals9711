@@ -5,24 +5,21 @@ import { ProfileData } from './types/index.js';
 
 async function main(): Promise<void> {
   try {
-    console.log('Fetching data...');
-    const [
-      header,
-      stats,
-      languages,
-      spotlight,
-      techStack,
-      recentActivity,
-      wakatimeData,
-    ] = await Promise.all([
-      dataService.getHeaderAndBio(),
-      dataService.getGithubStats(),
-      dataService.getLanguages(),
-      dataService.getProjectSpotlight(),
-      dataService.getTechStack(),
-      dataService.getRecentActivity(),
-      dataService.getWakaTimeData(),
-    ]);
+    console.log('Fetching common data...');
+    const { userRepos, contributions } = await dataService.getCommonData();
+
+    console.log('Fetching remaining data...');
+    const languages = await dataService.getLanguages(userRepos);
+
+    const [header, stats, spotlight, techStack, recentActivity, wakatimeData] =
+      await Promise.all([
+        dataService.getHeaderAndBio(userRepos),
+        dataService.getGithubStats(userRepos, contributions),
+        dataService.getProjectSpotlight(userRepos),
+        dataService.getTechStack(languages),
+        dataService.getRecentActivity(userRepos, contributions),
+        dataService.getWakaTimeData(),
+      ]);
 
     const data: ProfileData = {
       header,

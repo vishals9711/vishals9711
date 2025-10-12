@@ -13,24 +13,49 @@ import {
 } from '../types/index.js';
 import { WakaTimeLanguage } from '../types/index.js';
 import { BioData, ProjectData } from '../types/index.js';
+import { GitHubRepo } from '../types/index.js';
+type Contributions = {
+  user: {
+    contributionsCollection: {
+      totalCommitContributions: number;
+      totalRepositoriesWithContributedCommits: number;
+      contributionCalendar: {
+        totalContributions: number;
+        weeks: {
+          contributionDays: {
+            date: string;
+            contributionCount: number;
+          }[];
+        }[];
+      };
+    };
+  };
+};
 
 const config = getConfig();
 const GITHUB_USERNAME = config.github.username;
 
-export async function getHeaderAndBio(): Promise<HeaderData> {
-  const userReposPromise = github.listUserRepos(GITHUB_USERNAME);
+export async function getCommonData(): Promise<{
+  userRepos: GitHubRepo[];
+  contributions: Contributions;
+}> {
+  const [userRepos, contributions] = await Promise.all([
+    github.listAllUserRepos(GITHUB_USERNAME),
+    github.getContributionData(GITHUB_USERNAME),
+  ]);
+  return { userRepos, contributions };
+}
 
-  let topLanguage = 'JavaScript'; // Default fallback
+export async function getHeaderAndBio(userRepos: GitHubRepo[]): Promise<HeaderData> {
+  let topLanguage = 'JavaScript';
   let totalHours = 0;
-  let latestRepo = 'profile-dynamo'; // Default fallback
+  let latestRepo = 'profile-dynamo';
 
-  // Get WakaTime data if available
   if (config.wakatime.enabled && config.wakatime.apiKey) {
     try {
       const wakatimeStats = await wakatime.getStats('last_7_days');
       const languages = wakatimeStats.languages || [];
       const totalSeconds = wakatimeStats.total_seconds || 0;
-
       if (languages.length > 0 && languages[0]?.name) {
         topLanguage = languages[0]?.name;
       }
@@ -44,12 +69,8 @@ export async function getHeaderAndBio(): Promise<HeaderData> {
     console.warn('WakaTime not configured, using default values');
   }
 
-  // Get latest repository
-  try {
-    const userRepos = await userReposPromise;
-    latestRepo = userRepos.data[0]?.name || latestRepo;
-  } catch (error) {
-    console.warn('Could not fetch user repos:', error);
+  if (userRepos.length > 0 && userRepos[0]?.name) {
+    latestRepo = userRepos[0]?.name;
   }
 
   const bioData = await llm.generateBio({
@@ -62,11 +83,11 @@ export async function getHeaderAndBio(): Promise<HeaderData> {
   return { bio: bioData.bio };
 }
 
-export async function getLanguages(): Promise<LanguagesData> {
-  const userRepos = await github.listAllUserRepos(GITHUB_USERNAME);
+export async function getLanguages(
+  userRepos: GitHubRepo[]
+): Promise<LanguagesData> {
   const languageStats: Record<string, number> = {};
 
-  // Collect language data from all repositories
   for (const repo of userRepos) {
     try {
       const languages = await github.getRepoLanguages(
@@ -88,7 +109,6 @@ export async function getLanguages(): Promise<LanguagesData> {
     }
   }
 
-  // Calculate percentages
   const totalBytes = Object.values(languageStats).reduce(
     (sum, bytes) => sum + bytes,
     0
@@ -99,31 +119,28 @@ export async function getLanguages(): Promise<LanguagesData> {
     languagePercentages[lang] = ((bytes / totalBytes) * 100).toFixed(2);
   }
 
-  // Sort languages by usage
   const sortedLanguages = Object.entries(languagePercentages)
     .sort(([, a], [, b]) => parseFloat(b) - parseFloat(a))
-    .slice(0, 8) // Top 8 languages
+    .slice(0, 8)
     .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
 
   return sortedLanguages;
 }
 
-export async function getTechStack(): Promise<string[]> {
-  const languages = await getLanguages();
+export async function getTechStack(
+  languages: LanguagesData
+): Promise<string[]> {
   const techStack = await llm.generateTechStack({
     languages: Object.keys(languages),
   } as TechStackData);
   return techStack.techStack;
 }
 
-export async function getGithubStats(): Promise<GithubStats> {
-  // Following Octokit best practices: use simple, reliable endpoints
-  const [userData, userRepos, contributions] = await Promise.all([
-    github.getUserData(GITHUB_USERNAME),
-    github.listAllUserRepos(GITHUB_USERNAME),
-    github.getContributionData(GITHUB_USERNAME),
-  ]);
-
+export async function getGithubStats(
+  userRepos: GitHubRepo[],
+  contributions: Contributions
+): Promise<GithubStats> {
+  const userData = await github.getUserData(GITHUB_USERNAME);
   const totalStars = userRepos.reduce(
     (acc, repo) => acc + (repo.stargazers_count ?? 0),
     0
@@ -145,18 +162,17 @@ export async function getGithubStats(): Promise<GithubStats> {
   };
 }
 
-export async function getProjectSpotlight(): Promise<ProjectSpotlight> {
-  const userRepos = await github.listUserRepos(GITHUB_USERNAME);
-  const repo = userRepos.data[0];
+export async function getProjectSpotlight(
+  userRepos: GitHubRepo[]
+): Promise<ProjectSpotlight> {
+  const repo = userRepos[0];
 
   if (!repo) {
     throw new Error('No repositories found');
   }
 
-  // Get additional repo details
   const repoDetails = await github.getRepoContent(GITHUB_USERNAME, repo.name);
 
-  // Use LLM to generate an engaging description if the repo description is empty
   let description = repo.description;
   if (!description || description.trim() === '') {
     const enhancedDescription = await llm.generateProjectDescription({
@@ -182,23 +198,23 @@ export async function getProjectSpotlight(): Promise<ProjectSpotlight> {
   };
 }
 
-export async function getRecentActivity(): Promise<RecentActivity> {
-  const contributions = await github.getContributionData(GITHUB_USERNAME);
-
+export async function getRecentActivity(
+  userRepos: GitHubRepo[],
+  contributions: Contributions
+): Promise<RecentActivity> {
   const recentCommits =
     contributions.user.contributionsCollection.contributionCalendar.weeks
-      .slice(-12) // Last 12 weeks
+      .slice(-12)
       .flatMap((week) => week.contributionDays)
       .filter((day) => day.contributionCount > 0)
-      .slice(-30) // Last 30 contributions
+      .slice(-30)
       .map((day) => ({
         date: day.date,
         count: day.contributionCount,
       }));
 
-  const recentRepos = await github.listUserRepos(GITHUB_USERNAME);
-  const sortedRepos = recentRepos.data
-    .filter((repo) => repo.pushed_at) // Only include repos with pushed_at
+  const sortedRepos = userRepos
+    .filter((repo) => repo.pushed_at)
     .sort(
       (a, b) =>
         new Date(b.pushed_at || '').getTime() -
@@ -225,9 +241,6 @@ export async function getWakaTimeData(): Promise<WakaTimeData | null> {
 
   try {
     const stats = await wakatime.getStats('last_7_days');
-
-    // Debug the WakaTime response structure (safely)
-
     const totalSeconds = stats.total_seconds || 0;
     const languages = stats.languages || [];
 
