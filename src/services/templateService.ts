@@ -9,18 +9,10 @@ import {
   generatePercentageBadge,
 } from '../utils/badgeGenerator.js';
 
+import { Config } from '../config/config.js';
+
 interface TemplateData extends ProfileData {
-  config: {
-    github: {
-      username: string;
-    };
-    social: {
-      linkedin?: string;
-      github?: string;
-      twitter?: string;
-      website?: string;
-    };
-  };
+  config: Config;
   generateTechBadge: (techName: string) => string;
   generatePercentageBadge: (language: string, percentage: string) => string;
 }
@@ -34,12 +26,7 @@ export function generateReadme(data: ProfileData): void {
   const template = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
   const templateData: TemplateData = {
     ...data,
-    config: {
-      github: {
-        username: config.github.username,
-      },
-      social: config.social,
-    },
+    config,
     generateTechBadge,
     generatePercentageBadge,
   };

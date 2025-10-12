@@ -1,9 +1,19 @@
+<% if (config.header.image) { %>
+<div align="center">
+  <img src="<%= config.header.image %>" alt="Header Image" width="600"/>
+</div>
+<% } %>
+
 # 👋 Hi there! I'm @<%= config.github.username %>
 
 ## 🚀 About Me
 
 <%= header.bio %>
 
+## 🏆 GitHub Trophies
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=<%= config.github.username %>&theme=radical&rank=S,A,B,C" alt="GitHub Trophies"/>
+</div>
 
 ## 🛠️ Tech Stack
 
@@ -75,7 +85,7 @@
 
 ## 🌐 Connect With Me
 
-<% if (config.social.linkedin) { %><a href="<%= config.social.linkedin %>"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a><% } %><% if (config.social.github) { %><a href="<%= config.social.github %>"><img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" alt="GitHub"></a><% } %><% if (config.social.twitter) { %><a href="<%= config.social.twitter %>"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white" alt="Twitter"></a><% } %><% if (config.social.website) { %><a href="<%= config.social.website %>"><img src="https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white" alt="Website"></a><% } %>
+<% if (config.social.linkedin) { %><a href="<%= config.social.linkedin %>"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a><% } %><% if (config.social.github) { %><a href="<%= config.social.github %>"><img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" alt="GitHub"></a><% } %><% if (config.social.twitter) { %><a href="<%= config.social.twitter %>"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white" alt="Twitter"></a><% } %><% if (config.social.instagram) { %><a href="<%= config.social.instagram %>"><img src="https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white" alt="Instagram"></a><% } %><% if (config.social.stackoverflow) { %><a href="<%= config.social.stackoverflow %>"><img src="https://img.shields.io/badge/Stack_Overflow-FE7A16?style=flat&logo=stackoverflow&logoColor=white" alt="Stack Overflow"></a><% } %><% if (config.social.website) { %><a href="<%= config.social.website %>"><img src="https://img.shields.io/badge/Website-000000?style=flat&logo=globe&logoColor=white" alt="Website"></a><% } %><% if (config.social.blog) { %><a href="<%= config.social.blog %>"><img src="https://img.shields.io/badge/Blog-202020?style=flat&logo=blogger&logoColor=white" alt="Blog"></a><% } %>
 ---
 
 <div align="center">
