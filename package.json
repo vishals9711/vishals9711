@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
+    "@octokit/openapi-types": "^26.0.0",
     "@types/ejs": "^3.1.5",
     "@types/node": "^20.19.17",
     "tsc-alias": "^1.8.16",

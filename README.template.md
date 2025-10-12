@@ -67,15 +67,7 @@
 
 ## 💻 Language Breakdown
 
-### 📊 Most Used Languages
-
 <% const sortedLanguages = Object.entries(languages).slice(0, 8).sort(([,a], [,b]) => parseFloat(b) - parseFloat(a)); %>
-<% sortedLanguages.forEach(([lang, percentage]) => { %>
-<%= generateTechBadge(lang) %> <%= generatePercentageBadge(lang, percentage) %>
-<% }) %>
-
-### 📈 Language Usage Stats
-
 | Language | Percentage | Usage |
 |:---------|-----------:|-------|
 <% sortedLanguages.forEach(([lang, percentage]) => { %>| `<%= lang %>` | <%= percentage %>% | Primary language for <%= lang %> projects |
