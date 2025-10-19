@@ -4,7 +4,7 @@
 
 ## 🚀 About Me
 
-Hello, world! I&#39;m vishals9711, a passionate Swift enthusiast who&#39;s already dedicated 27+ hours to bringing ideas to life through code.
+Enthusiastically crafting elegant solutions in Swift, I&#39;ve already poured 36 hours into bringing ideas to life, and I&#39;m just getting started!
 
 ## 🏆 GitHub Trophies
 <div align="center">
@@ -16,17 +16,19 @@ Hello, world! I&#39;m vishals9711, a passionate Swift enthusiast who&#39;s alrea
 ### 🚀 Technologies I Work With
 
 ![React](https://img.shields.io/badge/React-20232a?style=flat&amp;logo=react)
-![Angular](https://img.shields.io/badge/Angular-c3002b?style=flat&amp;logo=angular)
 ![Node.js](https://img.shields.io/badge/Node.js-2d6a2b?style=flat&amp;logo=nodedotjs)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&amp;logo=express)
+![Angular](https://img.shields.io/badge/Angular-c3002b?style=flat&amp;logo=angular)
+![NestJS](https://img.shields.io/badge/NestJS-007acc?style=flat)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&amp;logo=nextdotjs)
 ![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-007acc?style=flat)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-03697c?style=flat&amp;logo=tailwindcss)
-![Sass](https://img.shields.io/badge/Sass-a53d6d?style=flat&amp;logo=sass)
+![Python](https://img.shields.io/badge/Python-2b5b84?style=flat&amp;logo=python)
 ![Pandas](https://img.shields.io/badge/Pandas-007acc?style=flat)
 ![NumPy](https://img.shields.io/badge/NumPy-007acc?style=flat)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-007acc?style=flat)
 ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-007acc?style=flat)
+![Entity Framework](https://img.shields.io/badge/Entity%20Framework-007acc?style=flat)
 
 ### 💡 Skills
 - **Programming Languages**: JavaScript, TypeScript, Python, Java
@@ -41,7 +43,7 @@ Hello, world! I&#39;m vishals9711, a passionate Swift enthusiast who&#39;s alrea
 
 | 🌟 Stars | 💻 Commits | 📁 Repos | 📊 Contributions |
 |:--------:|:----------:|:--------:|:----------------:|
-| 4 | 64 | 47 | 1336 |
+| 4 | 64 | 47 | 1343 |
 
 ### 👥 Community
 
@@ -52,22 +54,22 @@ Hello, world! I&#39;m vishals9711, a passionate Swift enthusiast who&#39;s alrea
 
 ## ⚡ Recent Coding Activity (WakaTime)
 
-⏰ **27 hours** of coding in the last 7 days
+⏰ **36 hours** of coding in the last 7 days
 
 ### 📊 Language Activity
 | Language | Usage | Hours |
 |:---------|-------:|------:|
-| `Swift` | 48% | 17 |
-| `Other` | 26% | 10 |
-| `Python` | 8% | 3 |
-| `Markdown` | 6% | 2 |
-| `Jupyter Notebook` | 5% | 2 |
+| `Swift` | 82% | 33 |
+| `Other` | 10% | 4 |
+| `Markdown` | 5% | 2 |
+| `TypeScript` | 3% | 1 |
+| `JSON` | 0% | 0 |
 
 
 
 ## 🚀 Featured Project
 ### **[vishals9711](https://github.com/vishals9711/vishals9711)**
-Designed with a focus on precision and maintainability, this TypeScript-powered project offers a robust, type-safe foundation for specialized applications. Its concise, well-documented architecture, highlighted by a comprehensive README, ensures clarity and simplifies integration, making it an ideal core component or a streamlined utility solution.
+This project, meticulously crafted with TypeScript, provides a robust and type-safe foundation for modern applications. It stands out by leveraging TypeScript&#39;s advanced features to ensure exceptional code quality, maintainability, and scalability. This commitment to best practices makes it an ideal choice for developing high-performance, error-resistant solutions that empower efficient development workflows.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-informational?style=flat&logo=typescript)
 ![Stars](https://img.shields.io/badge/Stars-0-yellow?style=flat)
@@ -118,7 +120,7 @@ Designed with a focus on precision and maintainability, this TypeScript-powered 
 
 **Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
 
-*Last updated: Oct 12, 2025, 07:56 PM UTC*
+*Last updated: Oct 19, 2025, 05:23 AM UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 
