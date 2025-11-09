@@ -4,7 +4,7 @@
 
 ## 🚀 About Me
 
-⚡️ Igniting innovation with Swift, I&#39;ve joyfully dedicated 31+ hours to coding, constantly exploring new ways to build and create amazing things! 🚀
+Passionate about crafting elegant solutions, I love bringing ideas to life with Swift, having dedicated 28 hours to coding this week!
 
 ## 🏆 GitHub Trophies
 <div align="center">
@@ -15,27 +15,19 @@
 
 ### 🚀 Technologies I Work With
 
-![Node.js](https://img.shields.io/badge/Node.js-2d6a2b?style=flat&amp;logo=nodedotjs)
 ![React](https://img.shields.io/badge/React-20232a?style=flat&amp;logo=react)
-![Angular](https://img.shields.io/badge/Angular-c3002b?style=flat&amp;logo=angular)
-![Vue.js](https://img.shields.io/badge/Vue.js-007acc?style=flat)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&amp;logo=nextdotjs)
-![NestJS](https://img.shields.io/badge/NestJS-007acc?style=flat)
+![Node.js](https://img.shields.io/badge/Node.js-2d6a2b?style=flat&amp;logo=nodedotjs)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&amp;logo=express)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-007acc?style=flat)
-![Prisma](https://img.shields.io/badge/Prisma-007acc?style=flat)
-![TypeORM](https://img.shields.io/badge/TypeORM-007acc?style=flat)
+![Angular](https://img.shields.io/badge/Angular-c3002b?style=flat&amp;logo=angular)
+![NestJS](https://img.shields.io/badge/NestJS-007acc?style=flat)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-03697c?style=flat&amp;logo=tailwindcss)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-007acc?style=flat)
-![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
-![Vite](https://img.shields.io/badge/Vite-4a50d6?style=flat&amp;logo=vite)
-![Jest](https://img.shields.io/badge/Jest-c21325?style=flat&amp;logo=jest)
-![ESLint](https://img.shields.io/badge/ESLint-4b32c3?style=flat&amp;logo=eslint)
 ![Python](https://img.shields.io/badge/Python-2b5b84?style=flat&amp;logo=python)
 ![Pandas](https://img.shields.io/badge/Pandas-007acc?style=flat)
 ![NumPy](https://img.shields.io/badge/NumPy-007acc?style=flat)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-007acc?style=flat)
-![Scikit-learn](https://img.shields.io/badge/Scikit-learn-007acc?style=flat)
+![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-007acc?style=flat)
+![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
+![Git](https://img.shields.io/badge/Git-c43a20?style=flat&amp;logo=git)
 
 ### 💡 Skills
 - **Programming Languages**: JavaScript, TypeScript, Python, Java
@@ -50,7 +42,7 @@
 
 | 🌟 Stars | 💻 Commits | 📁 Repos | 📊 Contributions |
 |:--------:|:----------:|:--------:|:----------------:|
-| 4 | 62 | 47 | 1363 |
+| 4 | 62 | 47 | 1381 |
 
 ### 👥 Community
 
@@ -61,22 +53,22 @@
 
 ## ⚡ Recent Coding Activity (WakaTime)
 
-⏰ **31 hours** of coding in the last 7 days
+⏰ **28 hours** of coding in the last 7 days
 
 ### 📊 Language Activity
 | Language | Usage | Hours |
 |:---------|-------:|------:|
-| `Swift` | 61% | 22 |
-| `TypeScript` | 19% | 7 |
-| `Other` | 12% | 4 |
-| `JSON` | 3% | 1 |
-| `YAML` | 2% | 1 |
+| `Swift` | 42% | 14 |
+| `TypeScript` | 29% | 9 |
+| `Other` | 14% | 5 |
+| `JSON` | 4% | 1 |
+| `Markdown` | 4% | 1 |
 
 
 
 ## 🚀 Featured Project
 ### **[vishals9711](https://github.com/vishals9711/vishals9711)**
-This TypeScript-based project, `vishals9711`, showcases a robust and meticulously crafted solution designed for clarity and maintainability. Leveraging TypeScript&#39;s strong typing, it provides enhanced code quality, improved scalability, and a superior developer experience, making it an excellent foundation for complex applications. Its well-structured architecture and inherent type safety ensure reliable performance and simplified collaboration.
+Explore &#34;vishals9711&#34;, a meticulously engineered project leveraging the full power of TypeScript. This repository exemplifies a professional commitment to robust, scalable, and maintainable software development, where strong typing and clear architecture are paramount. It stands out for its foundational strength, ensuring high code quality and paving the way for efficient future enhancements and collaborative efforts.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-informational?style=flat&logo=typescript)
 ![Stars](https://img.shields.io/badge/Stars-0-yellow?style=flat)
@@ -127,7 +119,7 @@ This TypeScript-based project, `vishals9711`, showcases a robust and meticulousl
 
 **Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
 
-*Last updated: Nov 2, 2025, 05:23 AM UTC*
+*Last updated: Nov 9, 2025, 05:22 AM UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 
