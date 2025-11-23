@@ -4,7 +4,7 @@
 
 ## 🚀 About Me
 
-Passionate Swift enthusiast who loves crafting innovative solutions and has already spent 19 hours diving deep into the world of code!
+Passionate Swift enthusiast who&#39;s already clocked 23 hours bringing ideas to life through code, always eager to build and innovate!
 
 ## 🏆 GitHub Trophies
 <div align="center">
@@ -19,12 +19,12 @@ Passionate Swift enthusiast who loves crafting innovative solutions and has alre
 ![Angular](https://img.shields.io/badge/Angular-c3002b?style=flat&amp;logo=angular)
 ![Node.js](https://img.shields.io/badge/Node.js-2d6a2b?style=flat&amp;logo=nodedotjs)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&amp;logo=express)
-![NestJS](https://img.shields.io/badge/NestJS-007acc?style=flat)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&amp;logo=nextdotjs)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-03697c?style=flat&amp;logo=tailwindcss)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-007acc?style=flat)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-03697c?style=flat&amp;logo=tailwindcss)
+![Webpack](https://img.shields.io/badge/Webpack-1563a0?style=flat&amp;logo=webpack)
 ![Pandas](https://img.shields.io/badge/Pandas-007acc?style=flat)
 ![NumPy](https://img.shields.io/badge/NumPy-007acc?style=flat)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-007acc?style=flat)
 
 ### 💡 Skills
 - **Programming Languages**: JavaScript, TypeScript, Python, Java
@@ -39,7 +39,7 @@ Passionate Swift enthusiast who loves crafting innovative solutions and has alre
 
 | 🌟 Stars | 💻 Commits | 📁 Repos | 📊 Contributions |
 |:--------:|:----------:|:--------:|:----------------:|
-| 4 | 62 | 47 | 1381 |
+| 4 | 62 | 47 | 1394 |
 
 ### 👥 Community
 
@@ -50,22 +50,22 @@ Passionate Swift enthusiast who loves crafting innovative solutions and has alre
 
 ## ⚡ Recent Coding Activity (WakaTime)
 
-⏰ **19 hours** of coding in the last 7 days
+⏰ **23 hours** of coding in the last 7 days
 
 ### 📊 Language Activity
 | Language | Usage | Hours |
 |:---------|-------:|------:|
-| `Swift` | 43% | 11 |
-| `TypeScript` | 28% | 7 |
-| `Other` | 21% | 5 |
-| `JSON` | 4% | 1 |
-| `JavaScript` | 3% | 1 |
+| `Swift` | 37% | 10 |
+| `TypeScript` | 33% | 9 |
+| `Other` | 20% | 6 |
+| `HTTP Request` | 6% | 2 |
+| `HTML` | 1% | 0 |
 
 
 
 ## 🚀 Featured Project
 ### **[vishals9711](https://github.com/vishals9711/vishals9711)**
-Explore a meticulously crafted TypeScript project, `vishals9711`, designed for clarity, maintainability, and robust performance. This solution exemplifies the power of strong typing and modern development principles, offering a well-structured codebase for efficient collaboration and future scalability.
+Engineered with a strong emphasis on reliability and developer experience, this project leverages TypeScript to deliver a robust and type-safe codebase. It distinguishes itself through a meticulously structured architecture, optimized for effortless maintenance and future scalability, making it an ideal foundation for high-performance applications demanding precision and clarity.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-informational?style=flat&logo=typescript)
 ![Stars](https://img.shields.io/badge/Stars-0-yellow?style=flat)
@@ -116,7 +116,7 @@ Explore a meticulously crafted TypeScript project, `vishals9711`, designed for c
 
 **Profile Views:** ![Visitor Count](https://komarev.com/ghpvc/?username=vishals9711&color=blue)
 
-*Last updated: Nov 16, 2025, 05:23 AM UTC*
+*Last updated: Nov 23, 2025, 05:24 AM UTC*
 
 > This profile README is automatically generated using [Profile Dynamo](https://github.com/vishals9711/profile-dynamo)
 
